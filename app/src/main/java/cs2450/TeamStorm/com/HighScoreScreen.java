@@ -43,6 +43,8 @@ public class HighScoreScreen extends AppCompatActivity {
         //reads scores.txt
         loadHighScores();
 
+        testScores();
+
         Button loadScores = (Button) findViewById(R.id.loadScores);
         loadScores.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -171,5 +173,28 @@ public class HighScoreScreen extends AppCompatActivity {
         }
 
         return newChoice;
+    }
+
+    public void testScores(){
+        scores[0][0] = "ABC";
+        scores[0][1] = "4";
+        scores[0][2] = "DEF";
+        scores[0][3] = "3";
+        scores[0][4] = "GHI";
+        scores[0][5] = "2";
+
+        scores[4][0] = "CBA";
+        scores[4][1] = "12";
+        scores[4][2] = "FDE";
+        scores[4][3] = "11";
+        scores[4][4] = "IHG";
+        scores[4][5] = "10";
+
+        scores[8][0] = "JKL";
+        scores[8][1] = "20";
+        scores[8][2] = "MNO";
+        scores[8][3] = "19";
+        scores[8][4] = "PQR";
+        scores[8][5] = "18";
     }
 }
