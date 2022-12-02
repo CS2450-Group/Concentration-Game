@@ -25,7 +25,10 @@ public class HighScoreScreen extends AppCompatActivity {
     TextView highScore2;
     TextView highScore3;
     EditText tileAmount;
-    String[][] scores = new String[9][6];
+
+    String[][] scores = new String[9][6]; //each row contains an array for the tile amount. Ex: 4 tiles would be String[4][x]
+                                          //for each array, even numbers are names and odd numbers are scores
+
     int choice;
 
 
@@ -39,6 +42,9 @@ public class HighScoreScreen extends AppCompatActivity {
         highScore3 = (TextView) findViewById(R.id.highScore3);
         tileAmount = (EditText) findViewById(R.id.tileAmount);
 
+        //reads scores.txt
+        loadHighScores();
+
         Button loadScores = (Button) findViewById(R.id.loadScores);
         loadScores.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -51,18 +57,19 @@ public class HighScoreScreen extends AppCompatActivity {
                     Toast.makeText(HighScoreScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    loadHighScores(convertChoice(choice));
+                    setHighScores(convertChoice(choice));
                 }
             }
         });
     }
 
-    public void loadHighScores(int choice){
+    //reads scores.txt
+    public void loadHighScores(){
         File file = getApplicationContext().getFileStreamPath("Scores.txt");
         String line;
 
 
-
+        //if file exists, read file
         if (file.exists()){
             try{
                 BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput("Scores.txt")));
@@ -78,30 +85,26 @@ public class HighScoreScreen extends AppCompatActivity {
 
                 reader.close();
 
-                String string1 = scores[choice][0] + " - " + scores[choice][1];
-                String string2 = scores[choice][2] + " - " + scores[choice][3];
-                String string3 = scores[choice][4] + " - " + scores[choice][5];
-                highScore1.setText(string1);
-                highScore2.setText(string2);
-                highScore3.setText(string3);
-
                 Toast.makeText(HighScoreScreen.this, "Scores Loaded", Toast.LENGTH_SHORT).show();
             }
             catch (IOException e) {
                 Toast.makeText(HighScoreScreen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
+        //if no file exists, create one
         else{
             try{
                 FileOutputStream file2 = openFileOutput("Scores.txt", MODE_PRIVATE);
                 OutputStreamWriter outputFile = new OutputStreamWriter(file2);
 
+                //set all names to be empty
                 for(int i = 0; i < 9; i++){
                     for (int j = 0; j < 6; j += 2 ){
                         scores[i][j] = "empty";
                     }
                 }
 
+                //set all scores to 0
                 for(int i = 0; i < 9; i++){
                     for (int j = 1; j < 6; j += 2 ){
                         scores[i][j] = "0";
@@ -124,6 +127,18 @@ public class HighScoreScreen extends AppCompatActivity {
         }
     }
 
+    //displays the scores on the textfields
+    public void setHighScores(int choice){
+        String string1 = scores[choice][0] + " - " + scores[choice][1];
+        String string2 = scores[choice][2] + " - " + scores[choice][3];
+        String string3 = scores[choice][4] + " - " + scores[choice][5];
+        highScore1.setText(string1);
+        highScore2.setText(string2);
+        highScore3.setText(string3);
+        Toast.makeText(HighScoreScreen.this, "Scores Set", Toast.LENGTH_SHORT).show();
+    }
+
+    //converts the user choice into the given row in the 2d array Scores
     public int convertChoice(int choice){
         int newChoice = 0;
 
