@@ -14,4 +14,9 @@
     <string name="load_test_scores">Load Test Scores</string>
     <string name="load_scores">Load Scores</string>
     <string name="enter_amount_of_tiles_4_20">enter amount of tiles (4-20)</string>
+    <string name="creditsLabel">Credits</string>
+    <string name="creditName2">Kristine Trevino Kinoshita (014679639)</string>
+    <string name="creditName3">Owen Lovett (014846715)</string>
+    <string name="creditName4">Timmy Lin (015073799)</string>
+    <string name="creditName1">Scott Lee (013762138)</string>
 </resources>
