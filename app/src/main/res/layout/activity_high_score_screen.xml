@@ -19,7 +19,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFBB33"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+        app:layout_constraintBottom_toTopOf="@+id/tileAmount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -77,11 +77,11 @@
         android:text="@string/load_scores"
         app:layout_constraintBottom_toTopOf="@+id/highScore2"
         app:layout_constraintStart_toStartOf="@+id/highScore1"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+        app:layout_constraintTop_toBottomOf="@+id/tileAmount"
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/tileAmount"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="50dp"
