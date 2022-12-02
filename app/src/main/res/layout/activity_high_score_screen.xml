@@ -10,17 +10,90 @@
     <TextView
         android:id="@+id/highScoreTitleLabel"
         android:layout_width="201dp"
-        android:layout_height="52dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="21dp"
         android:fontFamily="@font/stick"
         android:text="@string/high_scores"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFBB33"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045"
         tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/highScore1"
+        android:layout_width="199dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginBottom="49dp"
+        android:fontFamily="@font/stick"
+        android:gravity="center"
+        android:text="@string/high_score_1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/highScore2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/loadScores" />
+
+    <TextView
+        android:id="@+id/highScore2"
+        android:layout_width="199dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/stick"
+        android:gravity="center"
+        android:text="@string/high_score_2"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/highScore3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loadScores" />
+
+    <TextView
+        android:id="@+id/highScore3"
+        android:layout_width="199dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="231dp"
+        android:fontFamily="@font/stick"
+        android:gravity="center"
+        android:text="@string/high_score_3"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highScore2" />
+
+    <Button
+        android:id="@+id/loadScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginBottom="68dp"
+        android:text="@string/load_scores"
+        app:layout_constraintBottom_toTopOf="@+id/highScore2"
+        app:layout_constraintStart_toStartOf="@+id/highScore1"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="@string/enter_amount_of_tiles_4_20"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/loadScores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highScoreTitleLabel"
+        tools:ignore="TextContrastCheck"
+        android:autofillHints="" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
