@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8C9EFF"
+    tools:context=".GameScreen">
+
+    <Button
+        android:id="@+id/endGameButton"
+        android:layout_width="115dp"
+        android:layout_height="49dp"
+        android:text="@string/end_game"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.734"
+        tools:ignore="TextContrastCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton10"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton9"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton11"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton10"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton12"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton11"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton8"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton14"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton13"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton10"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton15"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton14"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton11"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton16"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toEndOf="@+id/cardButton15"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton12"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton18"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton17"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton14"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton19"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton18"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton15"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton20"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toEndOf="@+id/cardButton19"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton16"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton6"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton5"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton7"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton6"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton8"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toEndOf="@+id/cardButton7"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton17"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton13"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton5"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton9"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton13"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardButton9"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton1"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton2"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton3"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cardButton4"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="@drawable/card"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardButton3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <Button
+        android:id="@+id/tryAgainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/try_again"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.286"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/newGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_game"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageButton
+        android:id="@+id/gameMusicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/backgroundColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971"
+        app:srcCompat="@android:drawable/ic_lock_silent_mode_off"
+        tools:ignore="ImageContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

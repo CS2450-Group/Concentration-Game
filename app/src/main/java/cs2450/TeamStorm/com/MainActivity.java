@@ -30,14 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, HighScoreScreen.class));
             }
         });
-        // set click listener for settings button
-        Button settings = (Button) findViewById(R.id.settingsButton1);
-        settings.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SettingsScreen.class));
-            }
-        });
+
         // set click listener for credits button
         Button credits = (Button) findViewById(R.id.creditsButton);
         credits.setOnClickListener(new View.OnClickListener(){
