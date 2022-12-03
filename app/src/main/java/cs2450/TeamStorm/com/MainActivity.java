@@ -3,16 +3,28 @@ package cs2450.TeamStorm.com;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Audio player object to play background music
+    private MediaPlayer player;
+
+    // Creates activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // start music
+        if (player == null) {
+            player = MediaPlayer.create(this, R.raw.music);
+            player.setLooping(true);
+        }
+        player.start();
 
         // set click listener for start button
         Button start = (Button) findViewById(R.id.startButton);
@@ -30,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, HighScoreScreen.class));
             }
         });
-
         // set click listener for credits button
         Button credits = (Button) findViewById(R.id.creditsButton);
         credits.setOnClickListener(new View.OnClickListener(){
@@ -39,5 +50,41 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CreditsScreen.class));
             }
         });
+    }
+
+    // When activity resumes after pausing
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // resume music
+        if (!player.isPlaying())
+            player.start();
+    }
+
+    // When activity pauses
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // pause music
+        if (player != null)
+            player.pause();
+    }
+
+    // When activity stops
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //stop music
+        if (player != null) {
+            player.release();
+            player = null;
+        }
+    }
+
+    // Save data over rotation change
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        // save current position of music in Bundle
     }
 }

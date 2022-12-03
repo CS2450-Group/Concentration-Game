@@ -18,7 +18,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.971"
-        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
+        app:srcCompat="@android:drawable/ic_lock_silent_mode_off"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/titleLabel1"
@@ -39,42 +41,45 @@
     <Button
         android:id="@+id/startButton"
         android:layout_width="200dp"
-        android:layout_height="51dp"
+        android:layout_height="73dp"
         android:fontFamily="@font/stick"
         android:text="@string/start_game"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.682"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/highscoreButton"
         android:layout_width="200dp"
-        android:layout_height="51dp"
+        android:layout_height="73dp"
         android:fontFamily="@font/stick"
         android:text="@string/highscores"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699" />
+        app:layout_constraintVertical_bias="0.685" />
 
     <Button
         android:id="@+id/creditsButton"
         android:layout_width="200dp"
-        android:layout_height="51dp"
+        android:layout_height="73dp"
         android:fontFamily="@font/stick"
         android:text="@string/credits"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintVertical_bias="0.682" />
 
     <TextView
         android:id="@+id/titleLabel2"
