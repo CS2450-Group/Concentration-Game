@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,8 +51,28 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CreditsScreen.class));
             }
         });
-    }
 
+        ImageButton stop = (ImageButton) findViewById(R.id.mainMusicButton);
+        stop.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(!player.isPlaying()){
+                    player.start();
+                }
+            }
+        });
+
+        ImageButton resume = (ImageButton) findViewById(R.id.mainUnmuteButton);
+        resume.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(player != null){
+                    player.pause();
+                }
+            }
+        });
+    }
+    /*
     // When activity resumes after pausing
     @Override
     protected void onResume() {
@@ -80,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             player = null;
         }
     }
-
+*/
     // Save data over rotation change
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {

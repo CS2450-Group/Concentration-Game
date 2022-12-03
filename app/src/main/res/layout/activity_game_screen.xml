@@ -7,6 +7,228 @@
     android:background="#8C9EFF"
     tools:context=".GameScreen">
 
+
+    <TextView
+        android:id="@+id/backCard26"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/backCard22"
+        app:layout_constraintTop_toBottomOf="@+id/backCard22"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard27"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard26"
+        app:layout_constraintTop_toBottomOf="@+id/backCard23"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard28"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard27"
+        app:layout_constraintTop_toBottomOf="@+id/backCard24"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard29"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard28"
+        app:layout_constraintTop_toBottomOf="@+id/backCard25"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard30"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/backCard26"
+        app:layout_constraintTop_toBottomOf="@+id/backCard26"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard31"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard30"
+        app:layout_constraintTop_toBottomOf="@+id/backCard27"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard32"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard36"
+        app:layout_constraintTop_toBottomOf="@+id/backCard33"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard33"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.001"
+        app:layout_constraintStart_toEndOf="@+id/backCard37"
+        app:layout_constraintTop_toBottomOf="@+id/backCard29"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard34"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/backCard30"
+        app:layout_constraintTop_toBottomOf="@+id/backCard30"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard35"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard34"
+        app:layout_constraintTop_toBottomOf="@+id/backCard31"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard36"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard35"
+        app:layout_constraintTop_toBottomOf="@+id/backCard37"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard37"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard31"
+        app:layout_constraintTop_toBottomOf="@+id/backCard28"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard22"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/backCard1"
+        app:layout_constraintTop_toBottomOf="@+id/backCard1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard23"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard1"
+        app:layout_constraintTop_toBottomOf="@+id/backCard1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard24"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard2"
+        app:layout_constraintTop_toBottomOf="@+id/backCard1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard25"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard20"
+        app:layout_constraintTop_toTopOf="@+id/backCard22"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/gameunmutebutton"
+        android:layout_width="51dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/backgroundColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971"
+        app:srcCompat="@android:drawable/ic_lock_silent_mode" />
+
     <Button
         android:id="@+id/endGameButton"
         android:layout_width="115dp"
@@ -36,8 +258,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cardButton11"
-        android:layout_width="66dp"
-        android:layout_height="111dp"
+        android:layout_width="65dp"
+        android:layout_height="112dp"
         android:background="@drawable/card"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
@@ -322,5 +544,58 @@
         app:layout_constraintVertical_bias="0.971"
         app:srcCompat="@android:drawable/ic_lock_silent_mode_off"
         tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/backCard1"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.032" />
+
+    <TextView
+        android:id="@+id/backCard2"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard1"
+        app:layout_constraintTop_toTopOf="@+id/backCard1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard20"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard2"
+        app:layout_constraintTop_toTopOf="@+id/backCard2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/backCard21"
+        android:layout_width="66dp"
+        android:layout_height="111dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/backCard20"
+        app:layout_constraintTop_toTopOf="@+id/backCard1"
+        app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,10 +2,12 @@ package cs2450.TeamStorm.com;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,9 @@ import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class HighScoreScreen extends AppCompatActivity {
+
+    // Audio player object to play background music
+    private MediaPlayer player;
 
     TextView highScore1;
     TextView highScore2;
@@ -58,6 +63,26 @@ public class HighScoreScreen extends AppCompatActivity {
                 }
                 else{
                     setHighScores(convertChoice(choice));
+                }
+            }
+        });
+
+        ImageButton stop = (ImageButton) findViewById(R.id.highScoresMusicButton);
+        stop.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(!player.isPlaying()){
+                    player.start();
+                }
+            }
+        });
+
+        ImageButton resume = (ImageButton) findViewById(R.id.highscoreUnmuteButton);
+        resume.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(player != null){
+                    player.pause();
                 }
             }
         });
