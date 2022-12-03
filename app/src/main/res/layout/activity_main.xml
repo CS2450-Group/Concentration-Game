@@ -7,6 +7,19 @@
     android:background="@drawable/photo_1583459094467_e0db130c0dea"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/mainMusicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971"
+        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
+
     <TextView
         android:id="@+id/titleLabel1"
         android:layout_width="wrap_content"

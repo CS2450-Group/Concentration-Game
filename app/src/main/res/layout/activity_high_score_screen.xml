@@ -7,6 +7,19 @@
     android:background="#8C9EFF"
     tools:context=".HighScoreScreen">
 
+    <ImageButton
+        android:id="@+id/highScoresMusicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/backgroundColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971"
+        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
+
     <TextView
         android:id="@+id/highScoreTitleLabel"
         android:layout_width="201dp"
