@@ -3,6 +3,7 @@ package cs2450.TeamStorm.com;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,8 @@ import android.widget.ImageButton;
 public class MainActivity extends AppCompatActivity {
 
     // Audio player object to play background music
-    private MediaPlayer player = null;
+    int playerCurrentPosition;
+    private static MediaPlayer player = null;
 
     // Creates activity
     @Override
@@ -24,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.music);
             player.setLooping(true);
+            player.start();
         }
-        player.start();
 
         // set click listener for start button
         Button start = (Button) findViewById(R.id.startButton);
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             player = null;
         }
     }
-
+/*
     // save audio data when rotating
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -112,8 +114,9 @@ public class MainActivity extends AppCompatActivity {
         else {
             outState.putInt("playerPosition", player.getCurrentPosition());
             player.pause();
+            super.onSaveInstanceState(outState);
         }
-        super.onSaveInstanceState(outState);
+
     }
 
     // restore audio date after rotating
@@ -122,5 +125,18 @@ public class MainActivity extends AppCompatActivity {
         int position = savedInstanceState.getInt("playerPosition");
         player.seekTo(position);
         super.onRestoreInstanceState(savedInstanceState);
+    }
+*/
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            int currentPosition = player.getCurrentPosition();
+            player.seekTo(currentPosition);
+        }
+        else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            int currentPosition = player.getCurrentPosition();
+            player.seekTo(currentPosition);
+        }
     }
 }
