@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class GameScreen extends AppCompatActivity {
     // Audio player object to play background music
-    private MediaPlayer player;
+    //private MediaPlayer player;
 
     androidx.appcompat.widget.AppCompatButton cardButton1, cardButton2, cardButton3, cardButton4, cardButton5,
             cardButton6, cardButton7, cardButton8, cardButton9, cardButton10,
@@ -123,7 +123,7 @@ public class GameScreen extends AppCompatActivity {
 
 
 
-
+/*
         ImageButton stop = (ImageButton) findViewById(R.id.gameMusicButton);
         stop.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -142,7 +142,7 @@ public class GameScreen extends AppCompatActivity {
                     player.pause();
                 }
             }
-        });
+        }); */
 
 
     }

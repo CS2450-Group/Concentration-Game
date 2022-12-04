@@ -22,7 +22,7 @@ import java.util.StringTokenizer;
 public class HighScoreScreen extends AppCompatActivity {
 
     // Audio player object to play background music
-    private MediaPlayer player;
+    //private MediaPlayer player;
 
     TextView highScore1;
     TextView highScore2;
@@ -66,7 +66,7 @@ public class HighScoreScreen extends AppCompatActivity {
                 }
             }
         });
-
+/*
         ImageButton stop = (ImageButton) findViewById(R.id.highScoresMusicButton);
         stop.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -85,7 +85,7 @@ public class HighScoreScreen extends AppCompatActivity {
                     player.pause();
                 }
             }
-        });
+        }); */
     }
 
     //reads scores.txt

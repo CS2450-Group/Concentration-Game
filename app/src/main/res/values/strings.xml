@@ -24,4 +24,6 @@
     <string name="try_again">Try again</string>
     <string name="end_game">End game</string>
     <string name="new_game">New game</string>
+    <string name="unmute_audio">Unmute Audio</string>
+    <string name="mute_audio">Mute Audio</string>
 </resources>

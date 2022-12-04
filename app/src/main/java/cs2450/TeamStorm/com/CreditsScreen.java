@@ -9,13 +9,13 @@ import android.widget.ImageButton;
 
 public class CreditsScreen extends AppCompatActivity {
     // Audio player object to play background music
-    private MediaPlayer player;
+    //private MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits_screen);
-
+/*
         ImageButton stop = (ImageButton) findViewById(R.id.creditsMusicButton);
         stop.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -34,6 +34,6 @@ public class CreditsScreen extends AppCompatActivity {
                     player.pause();
                 }
             }
-        });
+        }); */
     }
 }

@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 public class MainActivity extends AppCompatActivity {
 
     // Audio player object to play background music
-    private MediaPlayer player;
+    private MediaPlayer player = null;
 
     // Creates activity
     @Override
@@ -52,27 +52,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // mute audio
         ImageButton stop = (ImageButton) findViewById(R.id.mainMusicButton);
         stop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(!player.isPlaying()){
+                if(!player.isPlaying()) {
                     player.start();
                 }
             }
         });
 
+        // resume audio after muting
         ImageButton resume = (ImageButton) findViewById(R.id.mainUnmuteButton);
         resume.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(player != null){
+                if (player != null) {
                     player.pause();
                 }
             }
         });
     }
-    /*
+
     // When activity resumes after pausing
     @Override
     protected void onResume() {
@@ -101,11 +103,24 @@ public class MainActivity extends AppCompatActivity {
             player = null;
         }
     }
-*/
-    // Save data over rotation change
+
+    // save audio data when rotating
     @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        // save current position of music in Bundle
+    protected void onSaveInstanceState(Bundle outState) {
+        if (player == null)
+            outState.putInt("playerPosition", 0);
+        else {
+            outState.putInt("playerPosition", player.getCurrentPosition());
+            player.pause();
+        }
+        super.onSaveInstanceState(outState);
+    }
+
+    // restore audio date after rotating
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        int position = savedInstanceState.getInt("playerPosition");
+        player.seekTo(position);
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }
