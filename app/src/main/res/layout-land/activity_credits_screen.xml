@@ -8,10 +8,25 @@
     tools:context=".CreditsScreen">
 
     <ImageButton
+        android:id="@+id/creditsUnmuteButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/backgroundColor"
+        android:contentDescription="@string/mute_audio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.967"
+        app:srcCompat="@android:drawable/ic_lock_silent_mode" />
+
+    <ImageButton
         android:id="@+id/creditsMusicButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/backgroundColor"
+        android:contentDescription="@string/unmute_audio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"

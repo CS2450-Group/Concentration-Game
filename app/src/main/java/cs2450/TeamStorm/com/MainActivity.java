@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     // Audio player object to play background music
     int playerCurrentPosition;
     private static MediaPlayer player = null;
+    // check if audio is muted
+    private boolean muted = false;
 
     // Creates activity
     @Override
@@ -29,12 +31,21 @@ public class MainActivity extends AppCompatActivity {
             player.start();
         }
 
+        // Create bundle to save MediaPlayer to other activities
+        Bundle bundle = new Bundle();
+        if (player == null)
+            bundle.putInt("playerPosition", 0);
+        else
+            bundle.putInt("playerPosition", player.getCurrentPosition());
+
         // set click listener for start button
         Button start = (Button) findViewById(R.id.startButton);
         start.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, GameScreen.class));
+                Intent intent1 = new Intent(MainActivity.this, GameScreen.class);
+                intent1.putExtras(bundle);
+                startActivity(intent1);
             }
         });
         // set click listener for highscore button
@@ -42,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
         highscore.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HighScoreScreen.class));
+                Intent intent2 = new Intent(MainActivity.this, HighScoreScreen.class);
+                intent2.putExtras(bundle);
+                startActivity(intent2);
             }
         });
         // set click listener for credits button
@@ -50,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
         credits.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, CreditsScreen.class));
+                Intent intent3 = new Intent(MainActivity.this, CreditsScreen.class);
+                intent3.putExtras(bundle);
+                startActivity(intent3);
             }
         });
 
@@ -59,8 +74,10 @@ public class MainActivity extends AppCompatActivity {
         stop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(!player.isPlaying()) {
-                    player.start();
+                if (player != null) {
+                    if(!player.isPlaying()){
+                        player.start();
+                    }
                 }
             }
         });
@@ -72,28 +89,29 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (player != null) {
                     player.pause();
+                    muted = true;
                 }
             }
         });
     }
-
+/*
     // When activity resumes after pausing
     @Override
     protected void onResume() {
         super.onResume();
         // resume music
-        if (!player.isPlaying())
+        if (!player.isPlaying() && !muted)
             player.start();
     }
 
     // When activity pauses
     @Override
     protected void onPause() {
-        super.onPause();
         // pause music
         if (player != null)
             player.pause();
-    }
+        super.onPause();
+    } */
 
     // When activity stops
     @Override
