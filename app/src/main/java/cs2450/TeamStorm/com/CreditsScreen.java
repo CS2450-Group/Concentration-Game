@@ -9,29 +9,19 @@ import android.widget.ImageButton;
 
 public class CreditsScreen extends AppCompatActivity {
     // Audio player object to play background music
-    private MediaPlayer player;
-    // Audio position
-    private int playerPosition = 0;
+    private static MediaPlayer player = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits_screen);
 
-        // get data from previous activity
-        Bundle bundle = getIntent().getExtras();
-        playerPosition = bundle.getInt("playerPosition");
+        // set MediaPlayer
+        player = MainActivity.getPlayer();
 
-        // start music
-        if (player == null) {
-            player = MediaPlayer.create(this, R.raw.music);
-            player.seekTo(playerPosition);
-            player.setLooping(true);
-            player.start();
-        }
-
-        ImageButton stop = (ImageButton) findViewById(R.id.creditsMusicButton);
-        stop.setOnClickListener(new View.OnClickListener(){
+        // resume audio after mute
+        ImageButton resume = (ImageButton) findViewById(R.id.creditsMusicButton);
+        resume.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if (player != null) {
@@ -42,8 +32,9 @@ public class CreditsScreen extends AppCompatActivity {
             }
         });
 
-        ImageButton resume = (ImageButton) findViewById(R.id.creditsUnmuteButton);
-        resume.setOnClickListener(new View.OnClickListener(){
+        // mute audio
+        ImageButton stop = (ImageButton) findViewById(R.id.creditsUnmuteButton);
+        stop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if(player != null){
@@ -51,16 +42,5 @@ public class CreditsScreen extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    // When activity stops
-    @Override
-    protected void onStop() {
-        super.onStop();
-        //stop music
-        if (player != null) {
-            player.release();
-            player = null;
-        }
     }
 }
