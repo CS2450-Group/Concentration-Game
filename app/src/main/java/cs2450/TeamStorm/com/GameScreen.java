@@ -2,13 +2,13 @@ package cs2450.TeamStorm.com;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -75,35 +75,91 @@ public class GameScreen extends AppCompatActivity {
                     }
                     else if (cardAmount == 4){
                         setContentView(R.layout.activity_game4_screen);
+                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
+                        newGameButton2.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                startActivity(new Intent(GameScreen.this, GameScreen.class));
+                            }
+                        });
                     }
                     else if (cardAmount == 6){
                         setContentView(R.layout.activity_game6_screen);
+                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
+                        newGameButton2.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                startActivity(new Intent(GameScreen.this, GameScreen.class));
+                            }
+                        });
                     }
                     else if (cardAmount == 8){
                         setContentView(R.layout.activity_game8_screen);
+                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
+                        newGameButton2.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                startActivity(new Intent(GameScreen.this, GameScreen.class));
+                            }
+                        });
                     }
                     else if (cardAmount == 10){
                         setContentView(R.layout.activity_game10_screen);
+                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
+                        newGameButton2.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                startActivity(new Intent(GameScreen.this, GameScreen.class));
+                            }
+                        });
                     }
                     else if (cardAmount == 12){
                         setContentView(R.layout.activity_game12_screen);
+                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
+                        newGameButton2.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                startActivity(new Intent(GameScreen.this, GameScreen.class));
+                            }
+                        });
                     }
                     else if (cardAmount == 14){
                         setContentView(R.layout.activity_game14_screen);
+                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
+                        newGameButton2.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                startActivity(new Intent(GameScreen.this, GameScreen.class));
+                            }
+                        });
                     }
                     else if (cardAmount == 16){
                         setContentView(R.layout.activity_game16_screen);
+                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
+                        newGameButton2.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                startActivity(new Intent(GameScreen.this, GameScreen.class));
+                            }
+                        });
                     }
                     else if (cardAmount == 18){
                         setContentView(R.layout.activity_game18_screen);
+                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
+                        newGameButton2.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                startActivity(new Intent(GameScreen.this, GameScreen.class));
+                            }
+                        });
                     }
                     else if (cardAmount == 20){
                         setContentView(R.layout.activity_game20_screen);
-                        Button newGameButton20 = (Button) findViewById(R.id.newGameButton20);
-                        newGameButton20.setOnClickListener(new View.OnClickListener(){
+                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
+                        newGameButton2.setOnClickListener(new View.OnClickListener(){
                             @Override
                             public void onClick(View v){
-                                //setContentView(R.layout.activity_game_screen);
+                                startActivity(new Intent(GameScreen.this, GameScreen.class));
                             }
                         });
                     }
