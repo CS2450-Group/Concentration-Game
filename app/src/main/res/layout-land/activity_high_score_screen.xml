@@ -7,18 +7,62 @@
     android:background="#8C9EFF"
     tools:context=".HighScoreScreen">
 
+    <TextView
+        android:id="@+id/tileLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/stick"
+        android:text="@string/tile_amount"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <Spinner
+        android:id="@+id/tileSelect"
+        android:layout_width="131dp"
+        android:layout_height="48dp"
+        android:background="@drawable/highscore_spinner_style"
+        android:entries="@array/dropMenuOptions"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.272" />
+
+    <ImageButton
+        android:id="@+id/highscoreUnmuteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/backgroundColor"
+        android:contentDescription="@string/mute_audio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.967"
+        app:srcCompat="@android:drawable/ic_lock_silent_mode"
+        tools:ignore="ImageContrastCheck" />
+
     <ImageButton
         android:id="@+id/highScoresMusicButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/backgroundColor"
+        android:contentDescription="@string/unmute_audio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.971"
-        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
+        app:srcCompat="@android:drawable/ic_lock_silent_mode_off"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/highScoreTitleLabel"
@@ -45,6 +89,7 @@
         android:gravity="center"
         android:text="@string/high_score_1"
         android:textSize="24sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +104,7 @@
         android:gravity="center"
         android:text="@string/high_score_2"
         android:textSize="24sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -74,41 +120,12 @@
         android:gravity="center"
         android:text="@string/high_score_3"
         android:textSize="24sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.886" />
-
-    <Button
-        android:id="@+id/loadScores"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/stick"
-        android:text="@string/load_scores"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363"
-        tools:ignore="TextContrastCheck" />
-
-    <EditText
-        android:id="@+id/tileAmount"
-        android:layout_width="312dp"
-        android:layout_height="48dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="@font/stick"
-        android:hint="@string/enter_amount_of_tiles_4_20"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19"
-        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

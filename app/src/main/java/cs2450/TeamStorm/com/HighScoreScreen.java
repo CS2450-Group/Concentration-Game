@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,80 +20,80 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class HighScoreScreen extends AppCompatActivity {
+public class HighScoreScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     // Audio player object to play background music
-    //private MediaPlayer player;
+    private static MediaPlayer player;
 
-    TextView highScore1;
-    TextView highScore2;
-    TextView highScore3;
-    EditText tileAmount;
+    // Text fields
+    private TextView highScore1;
+    private TextView highScore2;
+    private TextView highScore3;
+    private Spinner tiles;
 
-    String[][] scores = new String[9][6]; //each row contains an array for the tile amount. Ex: 4 tiles would be String[4][x]
+    private String[][] scores = new String[9][6]; //each row contains an array for the tile amount. Ex: 4 tiles would be String[4][x]
                                           //for each array, even numbers are names and odd numbers are scores
 
-    int choice;
-
+    // Player's choice
+    private int choice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score_screen);
 
+        // set MediaPlayer
+        player = MainActivity.getPlayer();
+
+        // initialize text fields
         highScore1 = (TextView) findViewById(R.id.highScore1);
         highScore2 = (TextView) findViewById(R.id.highScore2);
         highScore3 = (TextView) findViewById(R.id.highScore3);
-        tileAmount = (EditText) findViewById(R.id.tileAmount);
+        tiles = (Spinner) findViewById(R.id.tileSelect);
 
         //reads scores.txt
         loadHighScores();
 
         testScores();
 
-        Button loadScores = (Button) findViewById(R.id.loadScores);
-        loadScores.setOnClickListener(new View.OnClickListener(){
+        // create adapter to use custom spinner/drop down menu
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.dropMenuOptions,
+                R.layout.highscore_spinner_layout);
+        adapter.setDropDownViewResource(R.layout.highscore_dropdown_layout);
+        tiles.setAdapter(adapter);
+
+        // set actions when item is selected from spinner/drop down menu
+        tiles.setOnItemSelectedListener(this);
+
+        // resume audio after mute
+        ImageButton resume = (ImageButton) findViewById(R.id.highScoresMusicButton);
+        resume.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                choice = Integer.parseInt(tileAmount.getText().toString());
-                if (choice < 4 || choice > 20){
-                    Toast.makeText(HighScoreScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
-                }
-                else if ((choice % 2) != 0){
-                    Toast.makeText(HighScoreScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    setHighScores(convertChoice(choice));
-                }
-            }
-        });
-/*
-        ImageButton stop = (ImageButton) findViewById(R.id.highScoresMusicButton);
-        stop.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                if(!player.isPlaying()){
-                    player.start();
+                if (player != null) {
+                    if(!player.isPlaying()){
+                        player.start();
+                    }
                 }
             }
         });
 
-        ImageButton resume = (ImageButton) findViewById(R.id.highscoreUnmuteButton);
-        resume.setOnClickListener(new View.OnClickListener(){
+        // mute audio
+        ImageButton stop = (ImageButton) findViewById(R.id.highscoreUnmuteButton);
+        stop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if(player != null){
                     player.pause();
                 }
             }
-        }); */
+        });
     }
 
     //reads scores.txt
     public void loadHighScores(){
         File file = getApplicationContext().getFileStreamPath("Scores.txt");
         String line;
-
 
         //if file exists, read file
         if (file.exists()){
@@ -157,6 +158,9 @@ public class HighScoreScreen extends AppCompatActivity {
         String string1 = scores[choice][0] + " - " + scores[choice][1];
         String string2 = scores[choice][2] + " - " + scores[choice][3];
         String string3 = scores[choice][4] + " - " + scores[choice][5];
+        highScore1.setVisibility(View.VISIBLE);
+        highScore2.setVisibility(View.VISIBLE);
+        highScore3.setVisibility(View.VISIBLE);
         highScore1.setText(string1);
         highScore2.setText(string2);
         highScore3.setText(string3);
@@ -221,5 +225,19 @@ public class HighScoreScreen extends AppCompatActivity {
         scores[8][3] = "19";
         scores[8][4] = "PQR";
         scores[8][5] = "18";
+    }
+
+    // load high scores based on selected item from spinner/drop down menu
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String listItem = parent.getItemAtPosition(position).toString();
+        choice = Integer.parseInt(listItem.substring(0,listItem.indexOf(" ")));
+        setHighScores(convertChoice(choice));
+    }
+
+    // load highscores for smallest tile set - 4
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        setHighScores(4);
     }
 }

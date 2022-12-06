@@ -19,6 +19,17 @@
     <string name="creditName3">Owen Lovett (014846715)</string>
     <string name="creditName4">Timmy Lin (015073799)</string>
     <string name="creditName1">Scott Lee (013762138)</string>
+    <string-array name="dropMenuOptions">
+        <item>4 tiles</item>
+        <item>6 tiles</item>
+        <item>8 tiles</item>
+        <item>10 tiles</item>
+        <item>12 tiles</item>
+        <item>14 tiles</item>
+        <item>16 tiles</item>
+        <item>18 tiles</item>
+        <item> 20 tiles</item>
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="try_again">Try again</string>
@@ -26,4 +37,6 @@
     <string name="new_game">New game</string>
     <string name="unmute_audio">Unmute Audio</string>
     <string name="mute_audio">Mute Audio</string>
+    <string name="tile_amount">Tile Amount:</string>
+    <string name="text">text</string>
 </resources>
