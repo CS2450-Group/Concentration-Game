@@ -21,7 +21,7 @@ import java.util.StringTokenizer;
 
 public class GameScreen extends AppCompatActivity {
     // Audio player object to play background music
-    //private MediaPlayer player;
+    private static MediaPlayer player= null;
 
     androidx.appcompat.widget.AppCompatButton cardButton1, cardButton2, cardButton3, cardButton4, cardButton5,
             cardButton6, cardButton7, cardButton8, cardButton9, cardButton10,
@@ -50,6 +50,9 @@ public class GameScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
+
+        // set MediaPlayer
+        player = MainActivity.getPlayer();
 
         EditText tileAmountBtn = (EditText) findViewById(R.id.tileAmountBtn);
 
@@ -162,26 +165,30 @@ public class GameScreen extends AppCompatActivity {
 */
 
 
-/*
+
+        // mute audio
         ImageButton stop = (ImageButton) findViewById(R.id.gameMusicButton);
         stop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(!player.isPlaying()){
-                    player.start();
+                if (player != null) {
+                    if(!player.isPlaying()){
+                        player.start();
+                    }
                 }
             }
         });
 
+        // resume audio after muting
         ImageButton resume = (ImageButton) findViewById(R.id.gameunmutebutton);
         resume.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(player != null){
+                if (player != null) {
                     player.pause();
                 }
             }
-        }); */
+        });
 
 
     }
