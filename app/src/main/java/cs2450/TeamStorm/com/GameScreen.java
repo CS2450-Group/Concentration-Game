@@ -56,6 +56,8 @@ public class GameScreen extends AppCompatActivity {
 
         EditText tileAmountBtn = (EditText) findViewById(R.id.tileAmountBtn);
 
+
+
         Button newGameButton = (Button) findViewById(R.id.newGameButton);
         newGameButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -71,9 +73,41 @@ public class GameScreen extends AppCompatActivity {
                     else if ((cardAmount % 2) != 0){
                         Toast.makeText(GameScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
                     }
+                    else if (cardAmount == 4){
+                        setContentView(R.layout.activity_game4_screen);
+                    }
+                    else if (cardAmount == 6){
+                        setContentView(R.layout.activity_game6_screen);
+                    }
+                    else if (cardAmount == 8){
+                        setContentView(R.layout.activity_game8_screen);
+                    }
+                    else if (cardAmount == 10){
+                        setContentView(R.layout.activity_game10_screen);
+                    }
+                    else if (cardAmount == 12){
+                        setContentView(R.layout.activity_game12_screen);
+                    }
+                    else if (cardAmount == 14){
+                        setContentView(R.layout.activity_game14_screen);
+                    }
+                    else if (cardAmount == 16){
+                        setContentView(R.layout.activity_game16_screen);
+                    }
+                    else if (cardAmount == 18){
+                        setContentView(R.layout.activity_game18_screen);
+                    }
                     else if (cardAmount == 20){
                         setContentView(R.layout.activity_game20_screen);
+                        Button newGameButton20 = (Button) findViewById(R.id.newGameButton20);
+                        newGameButton20.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                //setContentView(R.layout.activity_game_screen);
+                            }
+                        });
                     }
+
                 }
             }
         });
