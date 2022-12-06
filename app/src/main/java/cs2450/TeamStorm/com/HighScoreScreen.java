@@ -54,15 +54,20 @@ public class HighScoreScreen extends AppCompatActivity {
         loadScores.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                choice = Integer.parseInt(tileAmount.getText().toString());
-                if (choice < 4 || choice > 20){
-                    Toast.makeText(HighScoreScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
-                }
-                else if ((choice % 2) != 0){
+                if (tileAmount.getText().toString().length() == 0){
                     Toast.makeText(HighScoreScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    setHighScores(convertChoice(choice));
+                    choice = Integer.parseInt(tileAmount.getText().toString());
+                    if (choice < 4 || choice > 20){
+                        Toast.makeText(HighScoreScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
+                    }
+                    else if ((choice % 2) != 0){
+                        Toast.makeText(HighScoreScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        setHighScores(convertChoice(choice));
+                    }
                 }
             }
         });

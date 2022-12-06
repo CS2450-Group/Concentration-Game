@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +51,31 @@ public class GameScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
 
+        EditText tileAmountBtn = (EditText) findViewById(R.id.tileAmountBtn);
+
+        Button newGameButton = (Button) findViewById(R.id.newGameButton);
+        newGameButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (tileAmountBtn.getText().toString().length() == 0){
+                    Toast.makeText(GameScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    cardAmount = Integer.parseInt(tileAmountBtn.getText().toString());
+                    if (cardAmount < 4 || cardAmount > 20){
+                        Toast.makeText(GameScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
+                    }
+                    else if ((cardAmount % 2) != 0){
+                        Toast.makeText(GameScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (cardAmount == 20){
+                        setContentView(R.layout.activity_game20_screen);
+                    }
+                }
+            }
+        });
+
+/*
         cardButton1 = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.cardButton1);
         cardButton2 = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.cardButton2);
         cardButton3 = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.cardButton3);
@@ -132,8 +159,7 @@ public class GameScreen extends AppCompatActivity {
         word18.setText("DOLPHIN");
         word19.setText("LION");
         word20.setText("BEAR");
-
-
+*/
 
 
 /*
