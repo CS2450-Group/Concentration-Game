@@ -56,13 +56,7 @@ public class GameScreen extends AppCompatActivity {
                         Toast.makeText(GameScreen.this, "Enter an even number 4-20", Toast.LENGTH_SHORT).show();
                     }
                     else if (cardAmount == 4){
-                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
-                        newGameButton2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                startActivity(new Intent(GameScreen.this, Game4Screen.class));
-                            }
-                        });
+                        startActivity(new Intent(GameScreen.this, Game4Screen.class));
                     }
                     else if (cardAmount == 6){
                         setContentView(R.layout.activity_game6_screen);
