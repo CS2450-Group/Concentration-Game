@@ -23,25 +23,7 @@ public class GameScreen extends AppCompatActivity {
     // Audio player object to play background music
     private static MediaPlayer player= null;
 
-    androidx.appcompat.widget.AppCompatButton cardButton1, cardButton2, cardButton3, cardButton4, cardButton5,
-            cardButton6, cardButton7, cardButton8, cardButton9, cardButton10,
-            cardButton11, cardButton12, cardButton13, cardButton14, cardButton15,
-            cardButton16, cardButton17, cardButton18, cardButton19, cardButton20;
-
-    String words[] = {"BAT", "HIPPO", "PANDA", "CAT", "DOG", "ELEPHANT", "TIGER", "LION", "BEAR", "DOLPHIN"};
-
-    int cardArray[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-
-    int card1, card2, card3, card4, card5, card6, card7, card8, card9, card10,
-            card11, card12, card13, card14, card15, card16, card17, card18, card19, card20;
-
-    int firstCard, secondCard;
-    int firstClick, secondClick;
-    int cardNumber = 1;
     int cardAmount;
-
-    int playerPoints = 0;
-    String playerName;
 
     String[][] scores = new String[9][6];
 
