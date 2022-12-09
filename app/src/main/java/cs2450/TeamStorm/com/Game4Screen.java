@@ -92,6 +92,11 @@ public class Game4Screen extends AppCompatActivity {
                 iv2.setEnabled(true);
                 iv3.setEnabled(true);
                 iv4.setEnabled(true);
+
+                if(playerPoints > 0){
+                    playerPoints--;
+                    p1Text.setText("Player points: " + playerPoints);
+                }
             }
         });
 

@@ -127,14 +127,7 @@ public class GameScreen extends AppCompatActivity {
                         });
                     }
                     else if (cardAmount == 20){
-                        setContentView(R.layout.activity_game20_screen);
-                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
-                        newGameButton2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                startActivity(new Intent(GameScreen.this, GameScreen.class));
-                            }
-                        });
+                        startActivity(new Intent(GameScreen.this, Game20Screen.class));
                     }
 
                 }
