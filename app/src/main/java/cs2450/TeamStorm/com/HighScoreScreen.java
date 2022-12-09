@@ -1,12 +1,16 @@
 package cs2450.TeamStorm.com;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -54,7 +58,7 @@ public class HighScoreScreen extends AppCompatActivity implements AdapterView.On
         //reads scores.txt
         loadHighScores();
 
-        testScores();
+        //testScores();
 
         // create adapter to use custom spinner/drop down menu
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.dropMenuOptions,
@@ -86,6 +90,34 @@ public class HighScoreScreen extends AppCompatActivity implements AdapterView.On
                 if(player != null){
                     player.pause();
                 }
+            }
+        });
+
+        Button resetButton = (Button)findViewById(R.id.resetButtton);
+
+        resetButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(HighScoreScreen.this);
+                alertDialogBuilder
+                        .setMessage("Are you sure you want to reset scores?")
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                resetHighScores();
+                                Toast.makeText(HighScoreScreen.this, "Scores Reset!", Toast.LENGTH_SHORT).show();
+                                setHighScores(0);
+                                dialogInterface.cancel();
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
             }
         });
     }
@@ -164,7 +196,7 @@ public class HighScoreScreen extends AppCompatActivity implements AdapterView.On
         highScore1.setText(string1);
         highScore2.setText(string2);
         highScore3.setText(string3);
-        Toast.makeText(HighScoreScreen.this, "Scores Set", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(HighScoreScreen.this, "Scores Set", Toast.LENGTH_SHORT).show();
     }
 
     //converts the user choice into the given row in the 2d array Scores
@@ -202,6 +234,40 @@ public class HighScoreScreen extends AppCompatActivity implements AdapterView.On
         }
 
         return newChoice;
+    }
+
+    public void resetHighScores(){
+        try{
+            FileOutputStream file2 = openFileOutput("Scores.txt", MODE_PRIVATE);
+            OutputStreamWriter outputFile = new OutputStreamWriter(file2);
+
+            //set all names to be empty
+            for(int i = 0; i < 9; i++){
+                for (int j = 0; j < 6; j += 2 ){
+                    scores[i][j] = "empty";
+                }
+            }
+
+            //set all scores to 0
+            for(int i = 0; i < 9; i++){
+                for (int j = 1; j < 6; j += 2 ){
+                    scores[i][j] = "0";
+                }
+            }
+
+            for(int i = 0; i < 9; i++){
+                for (int j = 0; j < 6; j += 2 ){
+                    outputFile.write(scores[i][j] + " " + scores[i][j + 1] + "\n");
+                }
+            }
+            outputFile.flush();
+            outputFile.close();
+
+            Toast.makeText(HighScoreScreen.this, "Scores Reset!", Toast.LENGTH_SHORT).show();
+        }
+        catch (IOException e){
+            Toast.makeText(HighScoreScreen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void testScores(){

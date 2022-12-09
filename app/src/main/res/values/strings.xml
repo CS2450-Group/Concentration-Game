@@ -39,4 +39,5 @@
     <string name="mute_audio">Mute Audio</string>
     <string name="tile_amount">Tile Amount:</string>
     <string name="text">text</string>
+    <string name="reset_scores">Reset Scores</string>
 </resources>

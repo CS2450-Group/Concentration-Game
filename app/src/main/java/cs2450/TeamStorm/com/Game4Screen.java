@@ -6,17 +6,27 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.StringTokenizer;
 
 public class Game4Screen extends AppCompatActivity {
     // Audio player object to play background music
@@ -27,6 +37,7 @@ public class Game4Screen extends AppCompatActivity {
     TextView p1Text;
 
     Integer[] cardsArray = {101, 102, 201, 202};
+    String[][] scores = new String[9][6];
 
     int image1, image2, image3, image4;
 
@@ -219,27 +230,59 @@ public class Game4Screen extends AppCompatActivity {
                 iv2.getVisibility() == View.INVISIBLE &&
                 iv3.getVisibility() == View.INVISIBLE &&
                 iv4.getVisibility() == View.INVISIBLE) {
-            //Toast.makeText(getActivity(), "Game Over", Toast.LENGTH_SHORT).show();
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game4Screen.this);
-            alertDialogBuilder
-                    .setMessage("GAME OVER!\nPlayer Points: " + playerPoints)
-                    .setCancelable(false)
-                    .setPositiveButton("NEW", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(getApplicationContext(), GameScreen.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    })
-                    .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            finish();
-                        }
-                    });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
+            loadHighScores();
+            if(checkHighScore() == false) {
+                //Toast.makeText(getActivity(), "Game Over", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game4Screen.this);
+                alertDialogBuilder
+                        .setMessage("GAME OVER!\nPlayer Points: " + playerPoints)
+                        .setCancelable(false)
+                        .setPositiveButton("NEW", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), GameScreen.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+            else{
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game4Screen.this);
+                alertDialogBuilder
+                        .setTitle("NEW HIGH SCORE!\nPlayer Points: " + playerPoints)
+                        .setMessage("Enter Name to save High Score:")
+                        .setCancelable(false);
+
+                final EditText nameInput = new EditText(Game4Screen.this);
+                int maxLength = 8;
+                nameInput.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength)});
+                alertDialogBuilder.setView(nameInput);
+
+                alertDialogBuilder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                saveHighScore(nameInput.getText().toString());
+                                finish();
+                            }
+                        });
+
+                alertDialogBuilder.setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
         }
     }
 
@@ -250,4 +293,178 @@ public class Game4Screen extends AppCompatActivity {
         image4 = R.drawable.twosun;
     }
 
+    //reads file and copies the scores to 2d array. creates file if it doesn't exist
+    public void loadHighScores(){
+        File file = getApplicationContext().getFileStreamPath("Scores.txt");
+        String line;
+
+
+        //if file exists, read file
+        if (file.exists()){
+            try{
+                BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput("Scores.txt")));
+
+                for(int i = 0; i < 9; i++){
+                    for (int j = 0; j < 6; j +=2){
+                        line = reader.readLine();
+                        StringTokenizer tokens = new StringTokenizer(line, " ");
+                        scores[i][j] = tokens.nextToken();
+                        scores[i][j + 1] = tokens.nextToken();
+                    }
+                }
+
+                reader.close();
+            }
+            catch (IOException e) {
+                Toast.makeText(Game4Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+        //if no file exists, create one and call method again
+        else{
+            try{
+                FileOutputStream file2 = openFileOutput("Scores.txt", MODE_PRIVATE);
+                OutputStreamWriter outputFile = new OutputStreamWriter(file2);
+
+                //set all names to be empty
+                for(int i = 0; i < 9; i++){
+                    for (int j = 0; j < 6; j += 2 ){
+                        scores[i][j] = "empty";
+                    }
+                }
+
+                //set all scores to 0
+                for(int i = 0; i < 9; i++){
+                    for (int j = 1; j < 6; j += 2 ){
+                        scores[i][j] = "0";
+                    }
+                }
+
+                for(int i = 0; i < 9; i++){
+                    for (int j = 0; j < 6; j += 2 ){
+                        outputFile.write(scores[i][j] + " " + scores[i][j + 1] + "\n");
+                    }
+                }
+                outputFile.flush();
+                outputFile.close();
+                loadHighScores();
+            }
+            catch (IOException e){
+                Toast.makeText(Game4Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    //converts amount of cards to position number in 2d array
+    public int convertChoice(int choice){
+        int newChoice = 0;
+
+        switch (choice){
+            case 4:
+                newChoice  = 0;
+                break;
+            case 6:
+                newChoice  = 1;
+                break;
+            case 8:
+                newChoice  = 2;
+                break;
+            case 10:
+                newChoice  = 3;
+                break;
+            case 12:
+                newChoice  = 4;
+                break;
+            case 14:
+                newChoice  = 5;
+                break;
+            case 16:
+                newChoice  = 6;
+                break;
+            case 18:
+                newChoice  = 7;
+                break;
+            case 20:
+                newChoice  = 8;
+                break;
+        }
+
+        return newChoice;
+    }
+
+    public boolean checkHighScore(){
+        int scoreType = convertChoice(4);
+
+        int scoreA = Integer.parseInt(scores[scoreType][1]);
+        int scoreB = Integer.parseInt(scores[scoreType][3]);
+        int scoreC = Integer.parseInt(scores[scoreType][5]);
+
+        if (playerPoints <= scoreC){
+            //no new high score
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    //checks and saves high scores. call this method everytime a game is ended.
+    public void saveHighScore(String playerName){
+        int scoreType = convertChoice(4);
+
+        int scoreA = Integer.parseInt(scores[scoreType][1]);
+        int scoreB = Integer.parseInt(scores[scoreType][3]);
+        int scoreC = Integer.parseInt(scores[scoreType][5]);
+
+        if (playerPoints > scoreC && playerPoints <= scoreB){
+            //high score is placed in rank 3
+            scores[scoreType][4] = playerName;
+            scores[scoreType][5] = Integer.toString(playerPoints);
+
+            writeHighScores();
+        }
+        else if (playerPoints > scoreB && playerPoints <= scoreA){
+            //move rank 2 scores to rank 3
+            scores[scoreType][4] = scores[scoreType][2];
+            scores[scoreType][5] = scores[scoreType][3];
+
+            //high score is placed in rank 2
+            scores[scoreType][2] = playerName;
+            scores[scoreType][3] = Integer.toString(playerPoints);
+
+            writeHighScores();
+        }
+        else if (playerPoints > scoreA){
+            //move rank 2 scores to rank 3
+            scores[scoreType][4] = scores[scoreType][2];
+            scores[scoreType][5] = scores[scoreType][3];
+
+            //move rank 1 scores to rank 2
+            scores[scoreType][2] = scores[scoreType][0];
+            scores[scoreType][3] = scores[scoreType][1];
+
+            //high score is placed in rank 1
+            scores[scoreType][0] = playerName;
+            scores[scoreType][1] = Integer.toString(playerPoints);
+
+            writeHighScores();
+        }
+    }
+
+    //writes new high scores to Scores.txt
+    public void writeHighScores(){
+        try{
+            FileOutputStream file2 = openFileOutput("Scores.txt", MODE_PRIVATE);
+            OutputStreamWriter outputFile = new OutputStreamWriter(file2);
+
+            for(int i = 0; i < 9; i++){
+                for (int j = 0; j < 6; j += 2 ){
+                    outputFile.write(scores[i][j] + " " + scores[i][j + 1] + "\n");
+                }
+            }
+            outputFile.flush();
+            outputFile.close();
+        }
+        catch (IOException e){
+            Toast.makeText(Game4Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
 }
