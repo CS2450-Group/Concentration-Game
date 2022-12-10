@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8C9EFF"
+    android:duplicateParentState="true"
     tools:context=".CreditsScreen">
 
     <ImageButton
