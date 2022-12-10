@@ -32,11 +32,11 @@ public class Game6Screen extends AppCompatActivity {
     // Audio player object to play background music
     private static MediaPlayer player;
 
-    ImageView iv11, iv12, iv21, iv22, iv31, iv32;
+    ImageView iv1, iv2, iv3, iv4, iv5, iv6;
 
     TextView p1Text;
 
-    Integer[] cardsArray = {100, 101, 102, 200, 201, 202};
+    Integer[] cardsArray = {101, 102, 103, 201, 202, 203};
     String[][] scores = new String[9][6];
 
     int image10, image11, image12, image20, image21, image22;
@@ -83,19 +83,19 @@ public class Game6Screen extends AppCompatActivity {
         tryAgain.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                iv11.setImageResource(R.drawable.card);
-                iv12.setImageResource(R.drawable.card);
-                iv21.setImageResource(R.drawable.card);
-                iv22.setImageResource(R.drawable.card);
-                iv31.setImageResource(R.drawable.card);
-                iv32.setImageResource(R.drawable.card);
+                iv1.setImageResource(R.drawable.card);
+                iv2.setImageResource(R.drawable.card);
+                iv3.setImageResource(R.drawable.card);
+                iv4.setImageResource(R.drawable.card);
+                iv5.setImageResource(R.drawable.card);
+                iv6.setImageResource(R.drawable.card);
 
-                iv11.setEnabled(true);
-                iv12.setEnabled(true);
-                iv21.setEnabled(true);
-                iv22.setEnabled(true);
-                iv31.setEnabled(true);
-                iv32.setEnabled(true);
+                iv1.setEnabled(true);
+                iv2.setEnabled(true);
+                iv3.setEnabled(true);
+                iv4.setEnabled(true);
+                iv5.setEnabled(true);
+                iv6.setEnabled(true);
 
                 if(playerPoints > 0){
                     playerPoints--;
@@ -106,93 +106,93 @@ public class Game6Screen extends AppCompatActivity {
 
         p1Text = (TextView) findViewById(R.id.pointsText);
 
-        iv11 = (ImageView) findViewById(R.id.imageView);
-        iv12 = (ImageView) findViewById(R.id.imageView2);
-        iv21 = (ImageView) findViewById(R.id.imageView3);
-        iv22 = (ImageView) findViewById(R.id.imageView4);
-        iv31 = (ImageView) findViewById(R.id.imageView5);
-        iv32 = (ImageView) findViewById(R.id.imageView6);
+        iv1 = (ImageView) findViewById(R.id.imageView);
+        iv2 = (ImageView) findViewById(R.id.imageView2);
+        iv3 = (ImageView) findViewById(R.id.imageView3);
+        iv4 = (ImageView) findViewById(R.id.imageView4);
+        iv5 = (ImageView) findViewById(R.id.imageView5);
+        iv6 = (ImageView) findViewById(R.id.imageView6);
 
 
-        iv11.setTag("0");
-        iv12.setTag("1");
-        iv21.setTag("2");
-        iv22.setTag("3");
-        iv31.setTag("4");
-        iv32.setTag("5");
+        iv1.setTag("0");
+        iv2.setTag("1");
+        iv3.setTag("2");
+        iv4.setTag("3");
+        iv5.setTag("4");
+        iv6.setTag("5");
 
         //set images to image variables
         frontOfCards();
 
         Collections.shuffle(Arrays.asList(cardsArray));
 
-        iv11.setOnClickListener(new View.OnClickListener(){
+        iv1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv11, theCard);
+                setImageAndCheck(iv1, theCard);
             }
         });
 
-        iv12.setOnClickListener(new View.OnClickListener(){
+        iv2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv12, theCard);
+                setImageAndCheck(iv2, theCard);
             }
         });
 
-        iv21.setOnClickListener(new View.OnClickListener(){
+        iv3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv21, theCard);
+                setImageAndCheck(iv3, theCard);
             }
         });
 
-        iv22.setOnClickListener(new View.OnClickListener(){
+        iv4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv22, theCard);
+                setImageAndCheck(iv4, theCard);
             }
         });
 
-        iv31.setOnClickListener(new View.OnClickListener(){
+        iv5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv31, theCard);
+                setImageAndCheck(iv5, theCard);
             }
         });
 
-        iv32.setOnClickListener(new View.OnClickListener(){
+        iv6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv32, theCard);
+                setImageAndCheck(iv6, theCard);
             }
         });
     }
 
     private void setImageAndCheck(ImageView iv, int card){
         //set images to imageview
-        if(cardsArray[card] == 100) {
+        if(cardsArray[card] == 101) {
             iv.setImageResource(image10);
         }
-        else if(cardsArray[card] == 101){
+        else if(cardsArray[card] == 102){
             iv.setImageResource(image11);
         }
-        else if(cardsArray[card] == 102){
+        else if(cardsArray[card] == 103){
             iv.setImageResource(image12);
         }
-        else if(cardsArray[card] == 200){
+        else if(cardsArray[card] == 201){
             iv.setImageResource(image20);
         }
-        else if(cardsArray[card] == 201){
+        else if(cardsArray[card] == 202){
             iv.setImageResource(image21);
         }
-        else if(cardsArray[card] == 202){
+        else if(cardsArray[card] == 203){
             iv.setImageResource(image22);
         }
         //check selected image
@@ -213,12 +213,12 @@ public class Game6Screen extends AppCompatActivity {
             cardNumber = 1;
             clickedSecond = card;
 
-            iv11.setEnabled(false);
-            iv12.setEnabled(false);
-            iv21.setEnabled(false);
-            iv22.setEnabled(false);
-            iv31.setEnabled(false);
-            iv32.setEnabled(false);
+            iv1.setEnabled(false);
+            iv2.setEnabled(false);
+            iv3.setEnabled(false);
+            iv4.setEnabled(false);
+            iv5.setEnabled(false);
+            iv6.setEnabled(false);
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -233,41 +233,41 @@ public class Game6Screen extends AppCompatActivity {
     private void check() {
         if (firstCard == secondCard) {
             if (clickedFirst == 0) {
-                iv11.setVisibility(View.INVISIBLE);
+                iv1.setVisibility(View.INVISIBLE);
             } else if (clickedFirst == 1) {
-                iv12.setVisibility(View.INVISIBLE);
+                iv2.setVisibility(View.INVISIBLE);
             } else if (clickedFirst == 2) {
-                iv21.setVisibility(View.INVISIBLE);
+                iv3.setVisibility(View.INVISIBLE);
             } else if (clickedFirst == 3) {
-                iv22.setVisibility(View.INVISIBLE);
+                iv4.setVisibility(View.INVISIBLE);
             } else if (clickedFirst == 4) {
-                iv31.setVisibility(View.INVISIBLE);
+                iv5.setVisibility(View.INVISIBLE);
             } else if (clickedFirst == 5) {
-                iv32.setVisibility(View.INVISIBLE);
+                iv6.setVisibility(View.INVISIBLE);
             }
 
             if (clickedSecond == 0) {
-                iv11.setVisibility(View.INVISIBLE);
+                iv1.setVisibility(View.INVISIBLE);
             } else if (clickedSecond == 1) {
-                iv12.setVisibility(View.INVISIBLE);
+                iv2.setVisibility(View.INVISIBLE);
             } else if (clickedSecond == 2) {
-                iv21.setVisibility(View.INVISIBLE);
+                iv3.setVisibility(View.INVISIBLE);
             } else if (clickedSecond == 3) {
-                iv22.setVisibility(View.INVISIBLE);
+                iv4.setVisibility(View.INVISIBLE);
             } else if (clickedSecond == 4) {
-                iv31.setVisibility(View.INVISIBLE);
+                iv5.setVisibility(View.INVISIBLE);
             } else if (clickedSecond == 5) {
-                iv32.setVisibility(View.INVISIBLE);
+                iv6.setVisibility(View.INVISIBLE);
             }
 
             playerPoints++;
             p1Text.setText("Player points: " + playerPoints);
-            iv11.setEnabled(true);
-            iv12.setEnabled(true);
-            iv21.setEnabled(true);
-            iv22.setEnabled(true);
-            iv31.setEnabled(true);
-            iv32.setEnabled(true);
+            iv1.setEnabled(true);
+            iv2.setEnabled(true);
+            iv3.setEnabled(true);
+            iv4.setEnabled(true);
+            iv5.setEnabled(true);
+            iv6.setEnabled(true);
 
 
         }
@@ -275,12 +275,12 @@ public class Game6Screen extends AppCompatActivity {
     }
 
     private void gameOver () {
-        if (iv11.getVisibility() == View.INVISIBLE &&
-                iv12.getVisibility() == View.INVISIBLE &&
-                iv21.getVisibility() == View.INVISIBLE &&
-                iv22.getVisibility() == View.INVISIBLE &&
-                iv31.getVisibility() == View.INVISIBLE &&
-                iv32.getVisibility() == View.INVISIBLE) {
+        if (iv1.getVisibility() == View.INVISIBLE &&
+                iv2.getVisibility() == View.INVISIBLE &&
+                iv3.getVisibility() == View.INVISIBLE &&
+                iv4.getVisibility() == View.INVISIBLE &&
+                iv5.getVisibility() == View.INVISIBLE &&
+                iv6.getVisibility() == View.INVISIBLE) {
             loadHighScores();
             if (checkHighScore() == false) {
                 //Toast.makeText(getActivity(), "Game Over", Toast.LENGTH_SHORT).show();
@@ -337,10 +337,10 @@ public class Game6Screen extends AppCompatActivity {
     }
 
     private void frontOfCards(){
-        image10 = R.drawable.rain;
+        image10 = R.drawable.snow;
         image11 = R.drawable.sun;
         image12 = R.drawable.cloudy;
-        image20 = R.drawable.tworain;
+        image20 = R.drawable.twosnow;
         image21 = R.drawable.twosun;
         image22 = R.drawable.twocloudy;
     }

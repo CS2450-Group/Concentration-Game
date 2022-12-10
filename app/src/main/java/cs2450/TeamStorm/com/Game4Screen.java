@@ -153,16 +153,16 @@ public class Game4Screen extends AppCompatActivity {
 
     private void setImageAndCheck(ImageView iv, int card){
         //set images to imageview
-        if(cardsArray[card] == 100) {
+        if(cardsArray[card] == 101) {
             iv.setImageResource(image1);
         }
-        else if(cardsArray[card] == 101){
+        else if(cardsArray[card] == 102){
             iv.setImageResource(image2);
         }
-        else if(cardsArray[card] == 102){
+        else if(cardsArray[card] == 201){
             iv.setImageResource(image3);
         }
-        else if(cardsArray[card] == 201){
+        else if(cardsArray[card] == 202){
             iv.setImageResource(image4);
         }
         //check selected image

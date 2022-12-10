@@ -36,7 +36,7 @@ public class Game20Screen extends AppCompatActivity {
 
     TextView p1Text;
 
-    Integer[] cardsArray = {100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 200 , 201, 202, 203, 204, 205 , 206, 207, 208, 209};
+    Integer[] cardsArray = {101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 201, 202, 203, 204, 205 , 206, 207, 208, 209, 210};
     String[][] scores = new String[9][6];
 
     int image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21, image22, image23, image24, image25, image26, image27, image28,
@@ -346,64 +346,64 @@ public class Game20Screen extends AppCompatActivity {
 
     private void setImageAndCheck(ImageView iv, int card){
         //set images to imageview
-        if(cardsArray[card] == 100) {
+        if(cardsArray[card] == 101) {
             iv.setImageResource(image10);
         }
-        else if(cardsArray[card] == 101) {
+        else if(cardsArray[card] == 102) {
             iv.setImageResource(image11);
         }
-        else if(cardsArray[card] == 102){
+        else if(cardsArray[card] == 103){
             iv.setImageResource(image12);
         }
-        else if(cardsArray[card] == 103){
+        else if(cardsArray[card] == 104){
             iv.setImageResource(image13);
         }
-        else if(cardsArray[card] == 104){
+        else if(cardsArray[card] == 105){
             iv.setImageResource(image14);
         }
-        else if(cardsArray[card] == 105) {
+        else if(cardsArray[card] == 106) {
             iv.setImageResource(image15);
         }
-        else if(cardsArray[card] == 106){
+        else if(cardsArray[card] == 107){
             iv.setImageResource(image16);
         }
-        else if(cardsArray[card] == 107){
+        else if(cardsArray[card] == 108){
             iv.setImageResource(image17);
         }
-        else if(cardsArray[card] == 108){
+        else if(cardsArray[card] == 109){
             iv.setImageResource(image18);
         }
-        else if(cardsArray[card] == 109){
+        else if(cardsArray[card] == 110){
             iv.setImageResource(image19);
         }
-        else if(cardsArray[card] == 200) {
+        else if(cardsArray[card] == 201) {
             iv.setImageResource(image20);
         }
-        else if(cardsArray[card] == 201){
+        else if(cardsArray[card] == 202){
             iv.setImageResource(image21);
         }
-        else if(cardsArray[card] == 202){
+        else if(cardsArray[card] == 203){
             iv.setImageResource(image22);
         }
-        else if(cardsArray[card] == 203){
+        else if(cardsArray[card] == 204){
             iv.setImageResource(image23);
         }
-        else if(cardsArray[card] == 204) {
+        else if(cardsArray[card] == 205) {
             iv.setImageResource(image24);
         }
-        else if(cardsArray[card] == 205){
+        else if(cardsArray[card] == 206){
             iv.setImageResource(image25);
         }
-        else if(cardsArray[card] == 206){
+        else if(cardsArray[card] == 207){
             iv.setImageResource(image26);
         }
-        else if(cardsArray[card] == 207){
+        else if(cardsArray[card] == 208){
             iv.setImageResource(image27);
         }
-        else if(cardsArray[card] == 208){
+        else if(cardsArray[card] == 209){
             iv.setImageResource(image28);
         }
-        else if(cardsArray[card] == 209){
+        else if(cardsArray[card] == 210){
             iv.setImageResource(image29);
         }
 
