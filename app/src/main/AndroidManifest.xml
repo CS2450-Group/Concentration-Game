@@ -20,6 +20,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".Game6Screen"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Game20Screen"
             android:exported="false">
             <meta-data

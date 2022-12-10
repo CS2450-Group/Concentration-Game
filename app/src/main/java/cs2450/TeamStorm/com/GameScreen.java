@@ -57,15 +57,9 @@ public class GameScreen extends AppCompatActivity {
                         startActivity(new Intent(GameScreen.this, Game4Screen.class));
                     }
                     else if (cardAmount == 6){
-                        setContentView(R.layout.activity_game6_screen);
-                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
-                        newGameButton2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                startActivity(new Intent(GameScreen.this, GameScreen.class));
-                            }
-                        });
+                        startActivity(new Intent(GameScreen.this, Game6Screen.class));
                     }
+
                     else if (cardAmount == 8){
                         setContentView(R.layout.activity_game8_screen);
                         Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
