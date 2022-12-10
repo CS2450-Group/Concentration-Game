@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         // start music
         if (player == null) {
-            player = MediaPlayer.create(this, R.raw.music);
+            player = MediaPlayer.create(this, R.raw.lofirain);
             player.setLooping(true);
             player.start();
         }

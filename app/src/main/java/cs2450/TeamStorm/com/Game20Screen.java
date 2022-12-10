@@ -410,18 +410,10 @@ public class Game20Screen extends AppCompatActivity {
         //check selected image
         if(cardNumber == 1){
             firstCard = cardsArray[card];
-            if(firstCard > 200 && firstCard < 300){
+            if(firstCard > 200){
                 firstCard = firstCard - 100;
             }
-            else if(firstCard > 300 && firstCard < 400){
-                firstCard = firstCard - 200;
-            }
-            else if(firstCard > 400 && firstCard < 500){
-                firstCard = firstCard - 300;
-            }
-            else if(firstCard > 500){
-                firstCard = firstCard - 400;
-            }
+
             cardNumber = 2;
             clickedFirst = card;
 
@@ -431,15 +423,7 @@ public class Game20Screen extends AppCompatActivity {
             if (secondCard > 200) {
                 secondCard = secondCard - 100;
             }
-            else if(secondCard > 300 && secondCard < 400){
-                secondCard = secondCard - 200;
-            }
-            else if(secondCard > 400 && secondCard < 500){
-                secondCard = secondCard - 300;
-            }
-            else if(secondCard > 500){
-                secondCard = secondCard - 400;
-            }
+
             cardNumber = 1;
             clickedSecond = card;
 
