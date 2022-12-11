@@ -29,6 +29,54 @@
                 android:value=".GameScreen" />
         </activity>
         <activity
+            android:name=".Game8Screen"
+            android:parentActivityName=".GameScreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameScreen" />
+        </activity>
+        <activity
+            android:name=".Game10Screen"
+            android:parentActivityName=".GameScreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameScreen" />
+        </activity>
+        <activity
+            android:name=".Game12Screen"
+            android:parentActivityName=".GameScreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameScreen" />
+        </activity>
+        <activity
+            android:name=".Game14Screen"
+            android:parentActivityName=".GameScreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameScreen" />
+        </activity>
+        <activity
+            android:name=".Game16Screen"
+            android:parentActivityName=".GameScreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameScreen" />
+        </activity>
+        <activity
+            android:name=".Game18Screen"
+            android:parentActivityName=".GameScreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameScreen" />
+        </activity>
+        <activity
             android:name=".Game20Screen"
             android:parentActivityName=".GameScreen"
             android:exported="false">

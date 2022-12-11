@@ -65,9 +65,9 @@ public class Game20Screen extends AppCompatActivity {
         // set MediaPlayer
         player = MainActivity.getPlayer();
 
-        // resume audio after mute
-        ImageButton resume = (ImageButton) findViewById(R.id.gameunmutebutton);
-        resume.setOnClickListener(new View.OnClickListener(){
+        // mute audio
+        ImageButton stop = (ImageButton) findViewById(R.id.gameMusicButton);
+        stop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if (player != null) {
@@ -78,14 +78,70 @@ public class Game20Screen extends AppCompatActivity {
             }
         });
 
-        // mute audio
-        ImageButton stop = (ImageButton) findViewById(R.id.gameMusicButton);
-        stop.setOnClickListener(new View.OnClickListener(){
+        // resume audio after muting
+        ImageButton resume = (ImageButton) findViewById(R.id.gameunmutebutton);
+        resume.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(player != null){
+                if (player != null) {
                     player.pause();
                 }
+            }
+        });
+
+        Button newGame = (Button)findViewById(R.id.newGameButton2);
+        newGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Game20Screen.this, GameScreen.class));
+            }
+        });
+
+        Button endGame = (Button)findViewById(R.id.endGameButton);
+        endGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                iv11.setImageResource(image10);
+                iv12.setImageResource(image11);
+                iv13.setImageResource(image12);
+                iv14.setImageResource(image13);
+                iv21.setImageResource(image14);
+                iv22.setImageResource(image15);
+                iv23.setImageResource(image16);
+                iv24.setImageResource(image17);
+                iv31.setImageResource(image18);
+                iv32.setImageResource(image20);
+                iv33.setImageResource(image21);
+                iv34.setImageResource(image22);
+                iv41.setImageResource(image23);
+                iv42.setImageResource(image24);
+                iv43.setImageResource(image25);
+                iv44.setImageResource(image26);
+                iv51.setImageResource(image27);
+                iv52.setImageResource(image28);
+                iv53.setImageResource(image27);
+                iv54.setImageResource(image28);
+
+                iv11.setEnabled(false);
+                iv12.setEnabled(false);
+                iv13.setEnabled(false);
+                iv14.setEnabled(false);
+                iv21.setEnabled(false);
+                iv22.setEnabled(false);
+                iv23.setEnabled(false);
+                iv24.setEnabled(false);
+                iv31.setEnabled(false);
+                iv32.setEnabled(false);
+                iv33.setEnabled(false);
+                iv34.setEnabled(false);
+                iv41.setEnabled(false);
+                iv42.setEnabled(false);
+                iv43.setEnabled(false);
+                iv44.setEnabled(false);
+                iv51.setEnabled(false);
+                iv52.setEnabled(false);
+                iv53.setEnabled(false);
+                iv54.setEnabled(false);
             }
         });
 

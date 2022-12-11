@@ -64,9 +64,9 @@ public class Game4Screen extends AppCompatActivity {
         // set MediaPlayer
         player = MainActivity.getPlayer();
 
-        // resume audio after mute
-        ImageButton resume = (ImageButton) findViewById(R.id.gameunmutebutton);
-        resume.setOnClickListener(new View.OnClickListener(){
+        // mute audio
+        ImageButton stop = (ImageButton) findViewById(R.id.gameMusicButton);
+        stop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if (player != null) {
@@ -77,14 +77,38 @@ public class Game4Screen extends AppCompatActivity {
             }
         });
 
-        // mute audio
-        ImageButton stop = (ImageButton) findViewById(R.id.gameMusicButton);
-        stop.setOnClickListener(new View.OnClickListener(){
+        // resume audio after muting
+        ImageButton resume = (ImageButton) findViewById(R.id.gameunmutebutton);
+        resume.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(player != null){
+                if (player != null) {
                     player.pause();
                 }
+            }
+        });
+
+        Button newGame = (Button)findViewById(R.id.newGameButton2);
+        newGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Game4Screen.this, GameScreen.class));
+            }
+        });
+
+        Button endGame = (Button)findViewById(R.id.endGameButton);
+        endGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                iv1.setImageResource(image1);
+                iv2.setImageResource(image2);
+                iv3.setImageResource(image3);
+                iv4.setImageResource(image4);
+
+                iv1.setEnabled(false);
+                iv2.setEnabled(false);
+                iv3.setEnabled(false);
+                iv4.setEnabled(false);
             }
         });
 

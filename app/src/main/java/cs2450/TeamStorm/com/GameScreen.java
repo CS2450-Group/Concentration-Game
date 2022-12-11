@@ -69,66 +69,23 @@ public class GameScreen extends AppCompatActivity {
                     else if (cardAmount == 6){
                         startActivity(new Intent(GameScreen.this, Game6Screen.class));
                     }
-
                     else if (cardAmount == 8){
-                        setContentView(R.layout.activity_game8_screen);
-                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
-                        newGameButton2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                startActivity(new Intent(GameScreen.this, GameScreen.class));
-                            }
-                        });
+                        startActivity(new Intent(GameScreen.this, Game8Screen.class));
                     }
                     else if (cardAmount == 10){
-                        setContentView(R.layout.activity_game10_screen);
-                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
-                        newGameButton2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                startActivity(new Intent(GameScreen.this, GameScreen.class));
-                            }
-                        });
+                        startActivity(new Intent(GameScreen.this, Game10Screen.class));
                     }
                     else if (cardAmount == 12){
-                        setContentView(R.layout.activity_game12_screen);
-                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
-                        newGameButton2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                startActivity(new Intent(GameScreen.this, GameScreen.class));
-                            }
-                        });
+                        startActivity(new Intent(GameScreen.this, Game12Screen.class));
                     }
-                    else if (cardAmount == 14){
-                        setContentView(R.layout.activity_game14_screen);
-                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
-                        newGameButton2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                startActivity(new Intent(GameScreen.this, GameScreen.class));
-                            }
-                        });
+                    else if (cardAmount == 14) {
+                        startActivity(new Intent(GameScreen.this, Game14Screen.class));
                     }
                     else if (cardAmount == 16){
-                        setContentView(R.layout.activity_game16_screen);
-                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
-                        newGameButton2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                startActivity(new Intent(GameScreen.this, GameScreen.class));
-                            }
-                        });
+                        startActivity(new Intent(GameScreen.this, Game16Screen.class));
                     }
                     else if (cardAmount == 18){
-                        setContentView(R.layout.activity_game18_screen);
-                        Button newGameButton2 = (Button) findViewById(R.id.newGameButton2);
-                        newGameButton2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                startActivity(new Intent(GameScreen.this, GameScreen.class));
-                            }
-                        });
+                        startActivity(new Intent(GameScreen.this, Game18Screen.class));
                     }
                     else if (cardAmount == 20){
                         startActivity(new Intent(GameScreen.this, Game20Screen.class));

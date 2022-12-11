@@ -31,18 +31,18 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class Game6Screen extends AppCompatActivity {
+public class Game12Screen extends AppCompatActivity {
     // Audio player object to play background music
     private static MediaPlayer player;
 
-    ImageView iv1, iv2, iv3, iv4, iv5, iv6;
+    ImageView iv1, iv2, iv3, iv4, iv5, iv6, iv7, iv8, iv9, iv10, iv11, iv12;
 
     TextView p1Text;
 
-    Integer[] cardsArray = {101, 102, 103, 201, 202, 203};
+    Integer[] cardsArray = {101, 102, 103, 104, 105, 106, 201, 202, 203, 204, 205, 206};
     String[][] scores = new String[9][6];
 
-    int image10, image11, image12, image20, image21, image22;
+    int image10, image11, image12, image13, image14, image15, image20, image21, image22, image23, image24, image25;
 
     int firstCard, secondCard;
     int clickedFirst, clickedSecond;
@@ -52,7 +52,7 @@ public class Game6Screen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game6_screen);
+        setContentView(R.layout.activity_game12_screen);
 
         // create ancestral navigation
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
@@ -92,7 +92,7 @@ public class Game6Screen extends AppCompatActivity {
         newGame.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Game6Screen.this, GameScreen.class));
+                startActivity(new Intent(Game12Screen.this, GameScreen.class));
             }
         });
 
@@ -103,10 +103,15 @@ public class Game6Screen extends AppCompatActivity {
                 iv1.setImageResource(image10);
                 iv2.setImageResource(image11);
                 iv3.setImageResource(image12);
-                iv4.setImageResource(image20);
-                iv5.setImageResource(image21);
-                iv6.setImageResource(image22);
-
+                iv4.setImageResource(image13);
+                iv5.setImageResource(image14);
+                iv6.setImageResource(image15);
+                iv7.setImageResource(image20);
+                iv8.setImageResource(image21);
+                iv9.setImageResource(image22);
+                iv10.setImageResource(image23);
+                iv11.setImageResource(image24);
+                iv12.setImageResource(image25);
 
                 iv1.setEnabled(false);
                 iv2.setEnabled(false);
@@ -114,6 +119,12 @@ public class Game6Screen extends AppCompatActivity {
                 iv4.setEnabled(false);
                 iv5.setEnabled(false);
                 iv6.setEnabled(false);
+                iv7.setEnabled(false);
+                iv8.setEnabled(false);
+                iv9.setEnabled(false);
+                iv10.setEnabled(false);
+                iv11.setEnabled(false);
+                iv12.setEnabled(false);
             }
         });
 
@@ -128,6 +139,12 @@ public class Game6Screen extends AppCompatActivity {
                 iv4.setImageResource(R.drawable.card);
                 iv5.setImageResource(R.drawable.card);
                 iv6.setImageResource(R.drawable.card);
+                iv7.setImageResource(R.drawable.card);
+                iv8.setImageResource(R.drawable.card);
+                iv9.setImageResource(R.drawable.card);
+                iv10.setImageResource(R.drawable.card);
+                iv11.setImageResource(R.drawable.card);
+                iv12.setImageResource(R.drawable.card);
 
                 iv1.setEnabled(true);
                 iv2.setEnabled(true);
@@ -135,6 +152,12 @@ public class Game6Screen extends AppCompatActivity {
                 iv4.setEnabled(true);
                 iv5.setEnabled(true);
                 iv6.setEnabled(true);
+                iv7.setEnabled(true);
+                iv8.setEnabled(true);
+                iv9.setEnabled(true);
+                iv10.setEnabled(true);
+                iv11.setEnabled(true);
+                iv12.setEnabled(true);
 
                 if(playerPoints > 0){
                     playerPoints--;
@@ -151,6 +174,12 @@ public class Game6Screen extends AppCompatActivity {
         iv4 = (ImageView) findViewById(R.id.imageView4);
         iv5 = (ImageView) findViewById(R.id.imageView5);
         iv6 = (ImageView) findViewById(R.id.imageView6);
+        iv7 = (ImageView) findViewById(R.id.imageView7);
+        iv8 = (ImageView) findViewById(R.id.imageView8);
+        iv9 = (ImageView) findViewById(R.id.imageView9);
+        iv10 = (ImageView) findViewById(R.id.imageView10);
+        iv11 = (ImageView) findViewById(R.id.imageView11);
+        iv12 = (ImageView) findViewById(R.id.imageView12);
 
 
         iv1.setTag("0");
@@ -159,6 +188,12 @@ public class Game6Screen extends AppCompatActivity {
         iv4.setTag("3");
         iv5.setTag("4");
         iv6.setTag("5");
+        iv7.setTag("6");
+        iv8.setTag("7");
+        iv9.setTag("8");
+        iv10.setTag("9");
+        iv11.setTag("10");
+        iv12.setTag("11");
 
         //set images to image variables
         frontOfCards();
@@ -212,6 +247,54 @@ public class Game6Screen extends AppCompatActivity {
                 setImageAndCheck(iv6, theCard);
             }
         });
+
+        iv7.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                int theCard = Integer.parseInt((String) view.getTag());
+                setImageAndCheck(iv7, theCard);
+            }
+        });
+
+        iv8.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                int theCard = Integer.parseInt((String) view.getTag());
+                setImageAndCheck(iv8, theCard);
+            }
+        });
+
+        iv9.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                int theCard = Integer.parseInt((String) view.getTag());
+                setImageAndCheck(iv9, theCard);
+            }
+        });
+
+        iv10.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                int theCard = Integer.parseInt((String) view.getTag());
+                setImageAndCheck(iv10, theCard);
+            }
+        });
+
+        iv11.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                int theCard = Integer.parseInt((String) view.getTag());
+                setImageAndCheck(iv11, theCard);
+            }
+        });
+
+        iv12.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                int theCard = Integer.parseInt((String) view.getTag());
+                setImageAndCheck(iv12, theCard);
+            }
+        });
     }
 
     private void setImageAndCheck(ImageView iv, int card){
@@ -225,6 +308,15 @@ public class Game6Screen extends AppCompatActivity {
         else if(cardsArray[card] == 103){
             iv.setImageResource(image12);
         }
+        else if(cardsArray[card] == 104){
+            iv.setImageResource(image13);
+        }
+        else if(cardsArray[card] == 105){
+            iv.setImageResource(image14);
+        }
+        else if(cardsArray[card] == 106){
+            iv.setImageResource(image15);
+        }
         else if(cardsArray[card] == 201){
             iv.setImageResource(image20);
         }
@@ -233,6 +325,15 @@ public class Game6Screen extends AppCompatActivity {
         }
         else if(cardsArray[card] == 203){
             iv.setImageResource(image22);
+        }
+        else if(cardsArray[card] == 204){
+            iv.setImageResource(image23);
+        }
+        else if(cardsArray[card] == 205){
+            iv.setImageResource(image24);
+        }
+        else if(cardsArray[card] == 206){
+            iv.setImageResource(image25);
         }
         //check selected image
         if(cardNumber == 1){
@@ -258,6 +359,12 @@ public class Game6Screen extends AppCompatActivity {
             iv4.setEnabled(false);
             iv5.setEnabled(false);
             iv6.setEnabled(false);
+            iv7.setEnabled(false);
+            iv8.setEnabled(false);
+            iv9.setEnabled(false);
+            iv10.setEnabled(false);
+            iv11.setEnabled(false);
+            iv12.setEnabled(false);
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -283,6 +390,18 @@ public class Game6Screen extends AppCompatActivity {
                 iv5.setVisibility(View.INVISIBLE);
             } else if (clickedFirst == 5) {
                 iv6.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 6) {
+                iv7.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 7) {
+                iv8.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 8) {
+                iv9.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 9) {
+                iv10.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 10) {
+                iv11.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 11) {
+                iv12.setVisibility(View.INVISIBLE);
             }
 
             if (clickedSecond == 0) {
@@ -297,6 +416,18 @@ public class Game6Screen extends AppCompatActivity {
                 iv5.setVisibility(View.INVISIBLE);
             } else if (clickedSecond == 5) {
                 iv6.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 6) {
+                iv7.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 7) {
+                iv8.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 8) {
+                iv9.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 9) {
+                iv10.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 10) {
+                iv11.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 11) {
+                iv12.setVisibility(View.INVISIBLE);
             }
 
             playerPoints++;
@@ -307,7 +438,12 @@ public class Game6Screen extends AppCompatActivity {
             iv4.setEnabled(true);
             iv5.setEnabled(true);
             iv6.setEnabled(true);
-
+            iv7.setEnabled(true);
+            iv8.setEnabled(true);
+            iv9.setEnabled(true);
+            iv10.setEnabled(true);
+            iv11.setEnabled(true);
+            iv12.setEnabled(true);
 
         }
         gameOver();
@@ -319,11 +455,17 @@ public class Game6Screen extends AppCompatActivity {
                 iv3.getVisibility() == View.INVISIBLE &&
                 iv4.getVisibility() == View.INVISIBLE &&
                 iv5.getVisibility() == View.INVISIBLE &&
-                iv6.getVisibility() == View.INVISIBLE) {
+                iv6.getVisibility() == View.INVISIBLE &&
+                iv7.getVisibility() == View.INVISIBLE &&
+                iv8.getVisibility() == View.INVISIBLE &&
+                iv9.getVisibility() == View.INVISIBLE &&
+                iv10.getVisibility() == View.INVISIBLE &&
+                iv11.getVisibility() == View.INVISIBLE &&
+                iv12.getVisibility() == View.INVISIBLE) {
             loadHighScores();
             if (checkHighScore() == false) {
                 //Toast.makeText(getActivity(), "Game Over", Toast.LENGTH_SHORT).show();
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game6Screen.this);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game12Screen.this);
                 alertDialogBuilder
                         .setMessage("GAME OVER!\nPlayer Points: " + playerPoints)
                         .setCancelable(false)
@@ -344,13 +486,13 @@ public class Game6Screen extends AppCompatActivity {
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             } else {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game6Screen.this);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game12Screen.this);
                 alertDialogBuilder
                         .setTitle("NEW HIGH SCORE!\nPlayer Points: " + playerPoints)
                         .setMessage("Enter Name to save High Score:")
                         .setCancelable(false);
 
-                final EditText nameInput = new EditText(Game6Screen.this);
+                final EditText nameInput = new EditText(Game12Screen.this);
                 int maxLength = 8;
                 nameInput.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLength)});
                 alertDialogBuilder.setView(nameInput);
@@ -379,9 +521,15 @@ public class Game6Screen extends AppCompatActivity {
         image10 = R.drawable.snow;
         image11 = R.drawable.sun;
         image12 = R.drawable.cloudy;
+        image13 = R.drawable.lightning;
+        image14 = R.drawable.night;
+        image15 = R.drawable.rain;
         image20 = R.drawable.twosnow;
         image21 = R.drawable.twosun;
         image22 = R.drawable.twocloudy;
+        image23 = R.drawable.twolightning;
+        image24 = R.drawable.twonight;
+        image25 = R.drawable.tworain;
     }
 
     //reads file and copies the scores to 2d array. creates file if it doesn't exist
@@ -407,7 +555,7 @@ public class Game6Screen extends AppCompatActivity {
                 reader.close();
             }
             catch (IOException e) {
-                Toast.makeText(Game6Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Game12Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
         //if no file exists, create one and call method again
@@ -440,7 +588,7 @@ public class Game6Screen extends AppCompatActivity {
                 loadHighScores();
             }
             catch (IOException e){
-                Toast.makeText(Game6Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Game12Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -555,7 +703,7 @@ public class Game6Screen extends AppCompatActivity {
             outputFile.close();
         }
         catch (IOException e){
-            Toast.makeText(Game6Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(Game12Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
