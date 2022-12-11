@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -367,7 +368,7 @@ public class Game8Screen extends AppCompatActivity {
                 iv7.getVisibility() == View.INVISIBLE &&
                 iv8.getVisibility() == View.INVISIBLE) {
             loadHighScores();
-            if (checkHighScore() == false) {
+            if (checkHighScore(8) == false) {
                 //Toast.makeText(getActivity(), "Game Over", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game8Screen.this);
                 alertDialogBuilder
@@ -404,8 +405,15 @@ public class Game8Screen extends AppCompatActivity {
                 alertDialogBuilder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        saveHighScore(nameInput.getText().toString());
-                        finish();
+                        String userName = nameInput.getText().toString();
+                        if(TextUtils.isEmpty(userName)) {
+                            saveHighScore("...", 8);
+                            finish();
+                        }
+                        else {
+                            saveHighScore(userName, 8);
+                            finish();
+                        }
                     }
                 });
 
@@ -529,8 +537,8 @@ public class Game8Screen extends AppCompatActivity {
         return newChoice;
     }
 
-    public boolean checkHighScore(){
-        int scoreType = convertChoice(4);
+    public boolean checkHighScore(int cardNumber){
+        int scoreType = convertChoice(cardNumber);
 
         int scoreA = Integer.parseInt(scores[scoreType][1]);
         int scoreB = Integer.parseInt(scores[scoreType][3]);
@@ -546,8 +554,8 @@ public class Game8Screen extends AppCompatActivity {
     }
 
     //checks and saves high scores. call this method everytime a game is ended.
-    public void saveHighScore(String playerName){
-        int scoreType = convertChoice(4);
+    public void saveHighScore(String playerName, int cardNumber){
+        int scoreType = convertChoice(cardNumber);
 
         int scoreA = Integer.parseInt(scores[scoreType][1]);
         int scoreB = Integer.parseInt(scores[scoreType][3]);
