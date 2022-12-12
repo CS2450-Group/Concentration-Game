@@ -157,72 +157,15 @@ public class Gameplay {
                 cardDeck[i].setEnabled(true);
             }
         }
-        gameOver(gameScreen, cardDeck);
     }
 
     // end the game
-    private void gameOver(Activity gameScreen, ImageView[] cardDeck){
+    public boolean checkGameOver(ImageView[] cardDeck){
         if(checkCardVisibility(cardDeck)) {
-            loadHighScores(gameScreen);
-            if(checkHighScore(numOfCards) == false) {
-                //Toast.makeText(getActivity(), "Game Over", Toast.LENGTH_SHORT).show();
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(gameScreen);
-                alertDialogBuilder
-                        .setMessage("GAME OVER!\nPlayer Points: " + playerPoints)
-                        .setCancelable(false)
-                        .setPositiveButton("NEW", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(gameScreen.getApplicationContext(), GameScreen.class);
-                                gameScreen.startActivity(intent);
-                                gameScreen.finish();
-                            }
-                        })
-                        .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                gameScreen.finish();
-                            }
-                        });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
-            }
-            else{
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(gameScreen);
-                alertDialogBuilder
-                        .setTitle("NEW HIGH SCORE!\nPlayer Points: " + playerPoints)
-                        .setMessage("Enter Name to save High Score:")
-                        .setCancelable(false);
-
-                final EditText nameInput = new EditText(gameScreen);
-                int maxLength = 8;
-                nameInput.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength)});
-                alertDialogBuilder.setView(nameInput);
-
-                alertDialogBuilder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        String userName = nameInput.getText().toString();
-                        if(TextUtils.isEmpty(userName)) {
-                            saveHighScore("...", numOfCards, gameScreen);
-                            gameScreen.finish();
-                        }
-                        else {
-                            saveHighScore(userName, numOfCards, gameScreen);
-                            gameScreen.finish();
-                        }
-                    }
-                });
-
-                alertDialogBuilder.setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        gameScreen.finish();
-                    }
-                });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
-            }
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
