@@ -57,6 +57,7 @@ public class Gameplay {
         intiCardArray();
         cardPairs = new int[numOfCards/2][2];
         images = new int[numOfCards/2];
+        setImages();
         setPairs();
     }
 
@@ -77,27 +78,16 @@ public class Gameplay {
     // create pairs of cards
     private void setPairs(){
         Random rand = new Random();
-        setImages();
-        boolean allPaired = false;
-        int row = 0;
-        int column = 0;
-        while (!allPaired) {
-            int cardChoice = rand.nextInt(numOfCards);
+        int count = 0;
+        int row = rand.nextInt(cardPairs.length);
+        int column = rand.nextInt(cardPairs[0].length);
+        while (count < numOfCards) {
             if (cardPairs[row][column] == 0) {
-                if (getRowIn2DArray(cardsArray[cardChoice], cardPairs) == -1) {
-                    cardPairs[row][column] = cardsArray[cardChoice];
-                    System.out.println(row + " " + column + " " + cardPairs[row][column]);
-                    if (column == 1) {
-                        if (row == cardPairs.length)
-                            allPaired = true;
-                        else {
-                            column = 0;
-                            row++;
-                        }
-                    } else
-                        column++;
-                }
+                cardPairs[row][column] = cardsArray[count];
+                count++;
             }
+            row = rand.nextInt(cardPairs.length);
+            column = rand.nextInt(cardPairs[0].length);
         }
     }
 
