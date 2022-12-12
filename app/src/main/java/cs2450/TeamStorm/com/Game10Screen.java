@@ -3,12 +3,14 @@ package cs2450.TeamStorm.com;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -676,6 +678,60 @@ public class Game10Screen extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if(newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE){
+
+            iv1.getLayoutParams().width = 116;
+            iv2.getLayoutParams().width = 116;
+            iv3.getLayoutParams().width = 116;
+            iv4.getLayoutParams().width = 116;
+            iv5.getLayoutParams().width = 116;
+            iv6.getLayoutParams().width = 116;
+            iv7.getLayoutParams().width = 116;
+            iv8.getLayoutParams().width = 116;
+            iv9.getLayoutParams().width = 116;
+            iv10.getLayoutParams().width = 116;
+
+            iv1.getLayoutParams().height = 152;
+            iv2.getLayoutParams().height = 152;
+            iv3.getLayoutParams().height = 152;
+            iv4.getLayoutParams().height = 152;
+            iv5.getLayoutParams().height = 152;
+            iv6.getLayoutParams().height = 152;
+            iv7.getLayoutParams().height = 152;
+            iv8.getLayoutParams().height = 152;
+            iv9.getLayoutParams().height = 152;
+            iv10.getLayoutParams().height = 152;
+        }else{
+
+            iv1.getLayoutParams().width = 216;
+            iv2.getLayoutParams().width = 216;
+            iv3.getLayoutParams().width = 216;
+            iv4.getLayoutParams().width = 216;
+            iv5.getLayoutParams().width = 216;
+            iv6.getLayoutParams().width = 216;
+            iv7.getLayoutParams().width = 216;
+            iv8.getLayoutParams().width = 216;
+            iv9.getLayoutParams().width = 216;
+            iv10.getLayoutParams().width = 216;
+
+            iv1.getLayoutParams().height = 252;
+            iv2.getLayoutParams().height = 252;
+            iv3.getLayoutParams().height = 252;
+            iv4.getLayoutParams().height = 252;
+            iv5.getLayoutParams().height = 252;
+            iv6.getLayoutParams().height = 252;
+            iv7.getLayoutParams().height = 252;
+            iv8.getLayoutParams().height = 252;
+            iv9.getLayoutParams().height = 252;
+            iv10.getLayoutParams().height = 252;
         }
     }
 }

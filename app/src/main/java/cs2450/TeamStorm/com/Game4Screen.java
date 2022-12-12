@@ -3,12 +3,14 @@ package cs2450.TeamStorm.com;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -528,4 +530,35 @@ public class Game4Screen extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if(newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE){
+
+            iv1.getLayoutParams().width = 206;
+            iv2.getLayoutParams().width = 206;
+            iv3.getLayoutParams().width = 206;
+            iv4.getLayoutParams().width = 206;
+
+            iv1.getLayoutParams().height = 242;
+            iv2.getLayoutParams().height = 242;
+            iv3.getLayoutParams().height = 242;
+            iv4.getLayoutParams().height = 242;
+        }else{
+
+            iv1.getLayoutParams().width = 216;
+            iv2.getLayoutParams().width = 216;
+            iv3.getLayoutParams().width = 216;
+            iv4.getLayoutParams().width = 216;
+
+            iv1.getLayoutParams().height = 252;
+            iv2.getLayoutParams().height = 252;
+            iv3.getLayoutParams().height = 252;
+            iv4.getLayoutParams().height = 252;
+        }
+    }
+
 }
