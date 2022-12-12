@@ -876,6 +876,7 @@ public class Game20Screen extends AppCompatActivity {
         return newChoice;
     }
 
+    // check if current points is greater than lowest saved high score
     public boolean checkHighScore(int cardNumber){
         int scoreType = convertChoice(cardNumber);
 
