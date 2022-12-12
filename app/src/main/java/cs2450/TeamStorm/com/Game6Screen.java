@@ -302,7 +302,7 @@ public class Game6Screen extends AppCompatActivity {
                 iv6.setVisibility(View.INVISIBLE);
             }
 
-            playerPoints++;
+            playerPoints += 2;
             p1Text.setText("Player points: " + playerPoints);
             iv1.setEnabled(true);
             iv2.setEnabled(true);

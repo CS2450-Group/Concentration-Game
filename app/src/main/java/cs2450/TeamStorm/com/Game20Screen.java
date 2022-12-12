@@ -648,7 +648,7 @@ public class Game20Screen extends AppCompatActivity {
                 iv54.setVisibility(View.INVISIBLE);
             }
 
-            playerPoints++;
+            playerPoints += 2;
             p1Text.setText("Player points: " + playerPoints);
             iv11.setEnabled(true);
             iv12.setEnabled(true);

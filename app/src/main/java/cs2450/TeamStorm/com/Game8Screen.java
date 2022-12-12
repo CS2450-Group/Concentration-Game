@@ -345,7 +345,7 @@ public class Game8Screen extends AppCompatActivity {
                 iv8.setVisibility(View.INVISIBLE);
             }
 
-            playerPoints++;
+            playerPoints += 2;
             p1Text.setText("Player points: " + playerPoints);
             iv1.setEnabled(true);
             iv2.setEnabled(true);
