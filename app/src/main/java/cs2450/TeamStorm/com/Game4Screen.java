@@ -69,19 +69,22 @@ public class Game4Screen extends AppCompatActivity {
             }
         });
 
+        //set variable to textview for point tracking
         p1Text = (TextView) findViewById(R.id.pointsText);
 
+        //set variables to imageview
         iv[0] = (ImageView) findViewById(R.id.imageView);
         iv[1] = (ImageView) findViewById(R.id.imageView2);
         iv[2] = (ImageView) findViewById(R.id.imageView3);
         iv[3] = (ImageView) findViewById(R.id.imageView4);
 
+        //set tags for the variables
         iv[0].setTag("0");
         iv[1].setTag("1");
         iv[2].setTag("2");
         iv[3].setTag("3");
 
-
+        //call function on click
         iv[0].setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

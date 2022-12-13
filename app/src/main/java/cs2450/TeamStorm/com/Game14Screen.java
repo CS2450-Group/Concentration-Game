@@ -3,12 +3,14 @@ package cs2450.TeamStorm.com;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -476,7 +478,7 @@ public class Game14Screen extends AppCompatActivity {
                 iv14.setVisibility(View.INVISIBLE);
             }
 
-            playerPoints++;
+            playerPoints += 2;
             p1Text.setText("Player points: " + playerPoints);
             iv1.setEnabled(true);
             iv2.setEnabled(true);
@@ -777,6 +779,76 @@ public class Game14Screen extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if(newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE){
+
+            iv1.getLayoutParams().width = 106;
+            iv2.getLayoutParams().width = 106;
+            iv3.getLayoutParams().width = 106;
+            iv4.getLayoutParams().width = 106;
+            iv5.getLayoutParams().width = 106;
+            iv6.getLayoutParams().width = 106;
+            iv7.getLayoutParams().width = 106;
+            iv8.getLayoutParams().width = 106;
+            iv9.getLayoutParams().width = 106;
+            iv10.getLayoutParams().width = 106;
+            iv11.getLayoutParams().width = 106;
+            iv12.getLayoutParams().width = 106;
+            iv13.getLayoutParams().width = 106;
+            iv14.getLayoutParams().width = 106;
+
+            iv1.getLayoutParams().height = 142;
+            iv2.getLayoutParams().height = 142;
+            iv3.getLayoutParams().height = 142;
+            iv4.getLayoutParams().height = 142;
+            iv5.getLayoutParams().height = 142;
+            iv6.getLayoutParams().height = 142;
+            iv7.getLayoutParams().height = 142;
+            iv8.getLayoutParams().height = 142;
+            iv9.getLayoutParams().height = 142;
+            iv10.getLayoutParams().height = 142;
+            iv11.getLayoutParams().height = 142;
+            iv12.getLayoutParams().height = 142;
+            iv13.getLayoutParams().height = 142;
+            iv14.getLayoutParams().height = 142;
+        }else{
+
+            iv1.getLayoutParams().width = 166;
+            iv2.getLayoutParams().width = 166;
+            iv3.getLayoutParams().width = 166;
+            iv4.getLayoutParams().width = 166;
+            iv5.getLayoutParams().width = 166;
+            iv6.getLayoutParams().width = 166;
+            iv7.getLayoutParams().width = 166;
+            iv8.getLayoutParams().width = 166;
+            iv9.getLayoutParams().width = 166;
+            iv10.getLayoutParams().width = 166;
+            iv11.getLayoutParams().width = 166;
+            iv12.getLayoutParams().width = 166;
+            iv13.getLayoutParams().width = 166;
+            iv14.getLayoutParams().width = 166;
+
+            iv1.getLayoutParams().height = 202;
+            iv2.getLayoutParams().height = 202;
+            iv3.getLayoutParams().height = 202;
+            iv4.getLayoutParams().height = 202;
+            iv5.getLayoutParams().height = 202;
+            iv6.getLayoutParams().height = 202;
+            iv7.getLayoutParams().height = 202;
+            iv8.getLayoutParams().height = 202;
+            iv9.getLayoutParams().height = 202;
+            iv10.getLayoutParams().height = 202;
+            iv11.getLayoutParams().height = 202;
+            iv12.getLayoutParams().height = 202;
+            iv13.getLayoutParams().height = 202;
+            iv14.getLayoutParams().height = 202;
         }
     }
 }

@@ -134,6 +134,7 @@ public class Gameplay {
                 cardDeck[i].setEnabled(false);
             }
 
+            //set one second delay to disappear after cards match
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
