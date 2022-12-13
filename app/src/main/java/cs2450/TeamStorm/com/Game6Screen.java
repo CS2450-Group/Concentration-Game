@@ -38,12 +38,14 @@ public class Game6Screen extends AppCompatActivity {
     // Audio player object to play background music
     private static MediaPlayer player;
 
+    // card variables
     ImageView iv1, iv2, iv3, iv4, iv5, iv6;
 
     TextView p1Text;
 
     Integer[] cardsArray = {101, 102, 103, 201, 202, 203};
     String[][] scores = new String[9][6];
+
 
     int image10, image11, image12, image20, image21, image22;
 
