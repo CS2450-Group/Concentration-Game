@@ -1,6 +1,5 @@
 package cs2450.TeamStorm.com;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -10,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -38,18 +36,26 @@ public class Game12Screen extends AppCompatActivity {
     // Audio player object to play background music
     private static MediaPlayer player;
 
-    ImageView iv1, iv2, iv3, iv4, iv5, iv6, iv7, iv8, iv9, iv10, iv11, iv12;
+    // card buttons
+    private ImageView iv1, iv2, iv3, iv4, iv5, iv6, iv7, iv8, iv9, iv10, iv11, iv12;
 
-    TextView p1Text;
+    // point label
+    private TextView p1Text;
 
-    Integer[] cardsArray = {101, 102, 103, 104, 105, 106, 201, 202, 203, 204, 205, 206};
-    String[][] scores = new String[9][6];
+    // card ids
+    private Integer[] cardsArray = {101, 102, 103, 104, 105, 106, 201, 202, 203, 204, 205, 206};
+    // list of high scores for all game types
+    private String[][] scores = new String[9][6];
 
-    int image10, image11, image12, image13, image14, image15, image20, image21, image22, image23, image24, image25;
+    // images on the front of cards
+    private int image10, image11, image12, image13, image14, image15, image20, image21, image22, image23, image24, image25;
 
-    int firstCard, secondCard;
+    // clickec cards position and value
+    private int firstCard, secondCard;
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
+
+    // number of points player earned
     int playerPoints = 0;
 
     @Override
@@ -91,6 +97,7 @@ public class Game12Screen extends AppCompatActivity {
             }
         });
 
+        // start a new game
         Button newGame = (Button)findViewById(R.id.newGameButton2);
         newGame.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -99,6 +106,7 @@ public class Game12Screen extends AppCompatActivity {
             }
         });
 
+        // end game
         Button endGame = (Button)findViewById(R.id.endGameButton);
         endGame.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -131,8 +139,8 @@ public class Game12Screen extends AppCompatActivity {
             }
         });
 
+        // try again after selecting a pair that does not match
         Button tryAgain = (Button)findViewById(R.id.tryAgainButton);
-
         tryAgain.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -201,8 +209,10 @@ public class Game12Screen extends AppCompatActivity {
         //set images to image variables
         frontOfCards();
 
+        // shuffle cards array
         Collections.shuffle(Arrays.asList(cardsArray));
 
+        // listener for each image button
         iv1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -300,6 +310,7 @@ public class Game12Screen extends AppCompatActivity {
         });
     }
 
+    // flips over cards over and checks if two cards match
     private void setImageAndCheck(ImageView iv, int card){
         //set images to imageview
         if(cardsArray[card] == 101) {
@@ -379,6 +390,7 @@ public class Game12Screen extends AppCompatActivity {
         }
     }
 
+    // check if two cards match
     private void check() {
         if (firstCard == secondCard) {
             if (clickedFirst == 0) {
