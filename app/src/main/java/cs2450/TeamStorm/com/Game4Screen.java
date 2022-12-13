@@ -1,38 +1,18 @@
 package cs2450.TeamStorm.com;
 
-import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.InputFilter;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.StringTokenizer;
 
 public class Game4Screen extends AppCompatActivity {
     // Audio player object to play background music
@@ -71,6 +51,9 @@ public class Game4Screen extends AppCompatActivity {
 
         // set MediaPlayer
         player = MainActivity.getPlayer();
+
+        // set gameplay
+        game = new Gameplay(4);
 
         // mute audio
         ImageButton stop = (ImageButton) findViewById(R.id.gameMusicButton);
@@ -158,8 +141,11 @@ public class Game4Screen extends AppCompatActivity {
         iv3.setTag("2");
         iv4.setTag("3");
 
-        //set images to image variables
-        frontOfCards();
+        //set tags for the variables
+        iv[0].setTag("0");
+        iv[1].setTag("1");
+        iv[2].setTag("2");
+        iv[3].setTag("3");
 
         Collections.shuffle(Arrays.asList(cardsArray));
 
@@ -168,35 +154,33 @@ public class Game4Screen extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv1, theCard);
+                game.setImageAndCheck(Game4Screen.this, iv[0], theCard, p1Text, iv);
             }
         });
 
-        iv2.setOnClickListener(new View.OnClickListener(){
+        iv[1].setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv2, theCard);
+                game.setImageAndCheck(Game4Screen.this, iv[1], theCard, p1Text, iv);
             }
         });
 
-        iv3.setOnClickListener(new View.OnClickListener(){
+        iv[2].setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv3, theCard);
+                game.setImageAndCheck(Game4Screen.this, iv[2], theCard, p1Text, iv);
             }
         });
 
-        iv4.setOnClickListener(new View.OnClickListener(){
+        iv[3].setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 int theCard = Integer.parseInt((String) view.getTag());
-                setImageAndCheck(iv4, theCard);
+                game.setImageAndCheck(Game4Screen.this, iv[3], theCard, p1Text, iv);
             }
         });
-
-    }
 
     private void setImageAndCheck(ImageView iv, int card){
         //set images to imageview
@@ -377,43 +361,21 @@ public class Game4Screen extends AppCompatActivity {
                     }
                 }
 
-                reader.close();
+        // end game
+        Button endGame = (Button)findViewById(R.id.endGameButton);
+        endGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                game.showCardAnswers(iv);
             }
-            catch (IOException e) {
-                Toast.makeText(Game4Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }
-        //if no file exists, create one and call method again
-        else{
-            try{
-                FileOutputStream file2 = openFileOutput("Scores.txt", MODE_PRIVATE);
-                OutputStreamWriter outputFile = new OutputStreamWriter(file2);
+        });
 
-                //set all names to be empty
-                for(int i = 0; i < 9; i++){
-                    for (int j = 0; j < 6; j += 2 ){
-                        scores[i][j] = "empty";
-                    }
-                }
-
-                //set all scores to 0
-                for(int i = 0; i < 9; i++){
-                    for (int j = 1; j < 6; j += 2 ){
-                        scores[i][j] = "0";
-                    }
-                }
-
-                for(int i = 0; i < 9; i++){
-                    for (int j = 0; j < 6; j += 2 ){
-                        outputFile.write(scores[i][j] + " " + scores[i][j + 1] + "\n");
-                    }
-                }
-                outputFile.flush();
-                outputFile.close();
-                loadHighScores();
-            }
-            catch (IOException e){
-                Toast.makeText(Game4Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        // play the game again with the same number of cards
+        Button tryAgain = (Button)findViewById(R.id.tryAgainButton);
+        tryAgain.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                game.reset(iv, p1Text);
             }
         }
     }
@@ -519,18 +481,6 @@ public class Game4Screen extends AppCompatActivity {
         try{
             FileOutputStream file2 = openFileOutput("Scores.txt", MODE_PRIVATE);
             OutputStreamWriter outputFile = new OutputStreamWriter(file2);
-
-            for(int i = 0; i < 9; i++){
-                for (int j = 0; j < 6; j += 2 ){
-                    outputFile.write(scores[i][j] + " " + scores[i][j + 1] + "\n");
-                }
-            }
-            outputFile.flush();
-            outputFile.close();
-        }
-        catch (IOException e){
-            Toast.makeText(Game4Screen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
     }
 
     // go up the activity hierarchy
@@ -577,5 +527,4 @@ public class Game4Screen extends AppCompatActivity {
             iv4.getLayoutParams().height = 252;
         }
     }
-
 }
