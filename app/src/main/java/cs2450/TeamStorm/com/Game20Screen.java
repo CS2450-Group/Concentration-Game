@@ -38,20 +38,28 @@ public class Game20Screen extends AppCompatActivity {
     // Audio player object to play background music
     private static MediaPlayer player;
 
-    ImageView iv11, iv12, iv13, iv14, iv21, iv22, iv23, iv24, iv31, iv32, iv33, iv34, iv41, iv42, iv43, iv44, iv51, iv52, iv53, iv54;
+    // card buttons
+    private ImageView iv11, iv12, iv13, iv14, iv21, iv22, iv23, iv24, iv31, iv32, iv33, iv34, iv41, iv42, iv43, iv44, iv51, iv52, iv53, iv54;
 
-    TextView p1Text;
+    // point label
+    private TextView p1Text;
 
-    Integer[] cardsArray = {101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 201, 202, 203, 204, 205 , 206, 207, 208, 209, 210};
-    String[][] scores = new String[9][6];
+    // card ids
+    private Integer[] cardsArray = {101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 201, 202, 203, 204, 205 , 206, 207, 208, 209, 210};
+    // list of high scores for all game types
+    private String[][] scores = new String[9][6];
 
-    int image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21, image22, image23, image24, image25, image26, image27, image28,
+    // images on the front of cards
+    private int image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21, image22, image23, image24, image25, image26, image27, image28,
             image29;
 
-    int firstCard, secondCard;
-    int clickedFirst, clickedSecond;
-    int cardNumber = 1;
-    int playerPoints = 0;
+    // clicked cards position and value
+    private int firstCard, secondCard;
+    private int clickedFirst, clickedSecond;
+    private int cardNumber = 1;
+
+    // number of points player earned
+    private int playerPoints = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +100,7 @@ public class Game20Screen extends AppCompatActivity {
             }
         });
 
+        // start a new game
         Button newGame = (Button)findViewById(R.id.newGameButton2);
         newGame.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -100,6 +109,7 @@ public class Game20Screen extends AppCompatActivity {
             }
         });
 
+        // end game
         Button endGame = (Button)findViewById(R.id.endGameButton);
         endGame.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -148,8 +158,8 @@ public class Game20Screen extends AppCompatActivity {
             }
         });
 
+        // try again after selecting a pair that do not match
         Button tryAgain = (Button)findViewById(R.id.tryAgainButton);
-
         tryAgain.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -250,8 +260,10 @@ public class Game20Screen extends AppCompatActivity {
         //set images to image variables
         frontOfCards();
 
+        // shuffle contents in cards array
         Collections.shuffle(Arrays.asList(cardsArray));
 
+        // listener for each image buttons
         iv11.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -413,6 +425,7 @@ public class Game20Screen extends AppCompatActivity {
         });
     }
 
+    // flip cards over and check if cards match
     private void setImageAndCheck(ImageView iv, int card){
         //set images to imageview
         if(cardsArray[card] == 101) {
@@ -527,6 +540,7 @@ public class Game20Screen extends AppCompatActivity {
         }
     }
 
+    // check if selected cards match
     private void check(){
         if(firstCard == secondCard){
             if(clickedFirst == 0){
@@ -674,6 +688,7 @@ public class Game20Screen extends AppCompatActivity {
         gameOver();
     }
 
+    // check if game over and save/load high score
     private void gameOver(){
         if(iv11.getVisibility() == View.INVISIBLE &&
                 iv12.getVisibility() == View.INVISIBLE &&
@@ -758,6 +773,7 @@ public class Game20Screen extends AppCompatActivity {
         }
     }
 
+    // initialize front of cards
     private void frontOfCards(){
         image10 = R.drawable.rain;
         image11 = R.drawable.sun;
@@ -841,6 +857,7 @@ public class Game20Screen extends AppCompatActivity {
             }
         }
     }
+
     //converts amount of cards to position number in 2d array
     public int convertChoice(int choice){
         int newChoice = 0;
@@ -971,6 +988,7 @@ public class Game20Screen extends AppCompatActivity {
         }
     }
 
+    // resize cards for rotation
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);

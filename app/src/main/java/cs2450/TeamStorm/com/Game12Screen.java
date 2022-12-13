@@ -464,6 +464,7 @@ public class Game12Screen extends AppCompatActivity {
         gameOver();
     }
 
+    // check if game over and save/load high score
     private void gameOver () {
         if (iv1.getVisibility() == View.INVISIBLE &&
                 iv2.getVisibility() == View.INVISIBLE &&
@@ -539,6 +540,7 @@ public class Game12Screen extends AppCompatActivity {
         }
     }
 
+    // initialize front of cards
     private void frontOfCards(){
         image10 = R.drawable.snow;
         image11 = R.drawable.sun;
@@ -614,6 +616,7 @@ public class Game12Screen extends AppCompatActivity {
             }
         }
     }
+
     //converts amount of cards to position number in 2d array
     public int convertChoice(int choice){
         int newChoice = 0;
@@ -651,6 +654,7 @@ public class Game12Screen extends AppCompatActivity {
         return newChoice;
     }
 
+    // checks if a player's score is greater than the lowest saved high score
     public boolean checkHighScore(int cardNumber){
         int scoreType = convertChoice(cardNumber);
 
@@ -743,6 +747,7 @@ public class Game12Screen extends AppCompatActivity {
         }
     }
 
+    // resize cards after rotation
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);

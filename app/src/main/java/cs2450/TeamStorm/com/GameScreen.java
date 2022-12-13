@@ -39,8 +39,7 @@ public class GameScreen extends AppCompatActivity {
 
         EditText tileAmountBtn = (EditText) findViewById(R.id.tileAmountBtn);
 
-
-
+        // start new game with selected number of cards
         Button newGameButton = (Button) findViewById(R.id.newGameButton);
         newGameButton.setOnClickListener(new View.OnClickListener(){
             @Override
