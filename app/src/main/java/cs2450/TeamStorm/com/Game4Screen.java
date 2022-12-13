@@ -38,15 +38,20 @@ public class Game4Screen extends AppCompatActivity {
     // Audio player object to play background music
     private static MediaPlayer player;
 
+    // image views
     ImageView iv1, iv2, iv3, iv4;
 
+    //score display
     TextView p1Text;
 
+    //identification of cards
     Integer[] cardsArray = {101, 102, 201, 202};
+
+    //high score 2d array
     String[][] scores = new String[9][6];
 
+    //card identification
     int image1, image2, image3, image4;
-
     int firstCard, secondCard;
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
@@ -91,6 +96,7 @@ public class Game4Screen extends AppCompatActivity {
             }
         });
 
+        //new game button
         Button newGame = (Button)findViewById(R.id.newGameButton2);
         newGame.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -99,6 +105,7 @@ public class Game4Screen extends AppCompatActivity {
             }
         });
 
+        //end game button
         Button endGame = (Button)findViewById(R.id.endGameButton);
         endGame.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -115,8 +122,8 @@ public class Game4Screen extends AppCompatActivity {
             }
         });
 
+        //try again button
         Button tryAgain = (Button)findViewById(R.id.tryAgainButton);
-
         tryAgain.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -137,8 +144,10 @@ public class Game4Screen extends AppCompatActivity {
             }
         });
 
+        //player score
         p1Text = (TextView) findViewById(R.id.pointsText);
 
+        //cards
         iv1 = (ImageView) findViewById(R.id.imageView);
         iv2 = (ImageView) findViewById(R.id.imageView2);
         iv3 = (ImageView) findViewById(R.id.imageView3);
@@ -154,6 +163,7 @@ public class Game4Screen extends AppCompatActivity {
 
         Collections.shuffle(Arrays.asList(cardsArray));
 
+        //card buttons
         iv1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -235,6 +245,7 @@ public class Game4Screen extends AppCompatActivity {
         }
     }
 
+    //checks for pairs
     private void check(){
         if(firstCard == secondCard){
             if(clickedFirst == 0){
@@ -267,12 +278,14 @@ public class Game4Screen extends AppCompatActivity {
         gameOver();
     }
 
+    //game over
     private void gameOver(){
         if(iv1.getVisibility() == View.INVISIBLE &&
                 iv2.getVisibility() == View.INVISIBLE &&
                 iv3.getVisibility() == View.INVISIBLE &&
                 iv4.getVisibility() == View.INVISIBLE) {
             loadHighScores();
+            // if no high score, ask if user wants to play again
             if(checkHighScore(4) == false) {
                 //Toast.makeText(getActivity(), "Game Over", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game4Screen.this);
@@ -296,6 +309,7 @@ public class Game4Screen extends AppCompatActivity {
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             }
+            //if high score, ask user to enter name if they want to save it
             else{
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Game4Screen.this);
                 alertDialogBuilder
@@ -335,6 +349,7 @@ public class Game4Screen extends AppCompatActivity {
         }
     }
 
+    //set the images on the front of the cards
     private void frontOfCards(){
         image1 = R.drawable.rain;
         image2 = R.drawable.sun;
@@ -439,6 +454,7 @@ public class Game4Screen extends AppCompatActivity {
         return newChoice;
     }
 
+    //checks if there is a new high score
     public boolean checkHighScore(int cardNumber){
         int scoreType = convertChoice(cardNumber);
 
@@ -531,6 +547,7 @@ public class Game4Screen extends AppCompatActivity {
         }
     }
 
+    //if rotation change, change size of cards
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
